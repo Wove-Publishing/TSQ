@@ -1,0 +1,383 @@
+media:
+  - name: images
+    label: Images
+    input: public/assets/images
+    output: /assets/images
+    rename: safe
+    categories: [image]
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "TSQ: create {path}"
+      update: "TSQ: update {path}"
+      delete: "TSQ: delete {path}"
+      rename: "TSQ: rename {oldPath} to {newPath}"
+
+content:
+  - name: work
+    label: Published Work
+    type: collection
+    path: src/content/work
+    format: yaml-frontmatter
+    subfolders: false
+    exclude:
+      - ".gitkeep"
+    filename:
+      template: "{slug}.md"
+      field: false
+    view:
+      fields:
+        - title
+        - contributor
+        - category
+        - publish_date
+        - draft
+        - previously_published
+      primary: title
+      sort:
+        - publish_date
+        - title
+      search:
+        - title
+        - contributor
+        - category
+      default:
+        sort: publish_date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Lowercase words separated by hyphens, e.g. the-house-under-snow
+        pattern: "^[a-z0-9-]+$"
+
+      - name: contributor
+        label: Contributor
+        type: reference
+        required: true
+        options:
+          collection: contributors
+          search: "name,slug"
+          value: "{fields.slug}"
+          label: "{fields.name}"
+
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - name: poetry
+              label: Poetry
+            - name: fiction
+              label: Fiction
+            - name: essay
+              label: Essay
+            - name: criticism
+              label: Criticism
+            - name: translation
+              label: Translation
+            - name: art
+              label: Art
+            - name: photography
+              label: Photography
+            - name: interview
+              label: Interview
+
+      - name: publish_date
+        label: Publication date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+
+      - name: excerpt
+        label: Excerpt / standfirst
+        type: text
+        description: Short description shown on listing cards and the homepage.
+
+      - name: featured_image
+        label: Featured image
+        type: image
+        options:
+          media: images
+          rename: safe
+
+      - name: featured_image_alt
+        label: Featured image alt text
+        type: string
+
+      - name: featured
+        label: Feature on homepage
+        type: boolean
+        default: false
+
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+        description: Keep enabled until the piece is ready to appear publicly.
+
+      - name: previously_published
+        label: Previously published?
+        type: boolean
+        default: false
+
+      - name: first_publication_title
+        label: Original publication
+        type: string
+        description: Required for reprints. Name of the magazine, journal, website, anthology, etc.
+
+      - name: first_publication_url
+        label: Original publication URL
+        type: string
+
+      - name: first_publication_date
+        label: Original publication date
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+
+      - name: compilation_eligible
+        label: Eligible for issue compilation
+        type: boolean
+        default: true
+        description: Turn this OFF for previously published work. Reprints may appear online but not in TSQ issue compilations.
+
+      - name: issue
+        label: Issue / seasonal compilation
+        type: reference
+        options:
+          collection: issues
+          search: "title,season,year"
+          value: "{fields.slug}"
+          label: "{fields.title}"
+
+      - name: body
+        label: Work
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: images
+          switcher: true
+          rename: safe
+
+  - name: contributors
+    label: Contributors
+    type: collection
+    path: src/content/contributors
+    format: yaml-frontmatter
+    subfolders: false
+    exclude:
+      - ".gitkeep"
+    filename:
+      template: "{slug}.md"
+      field: false
+    view:
+      fields:
+        - name
+        - role
+        - location
+        - draft
+      primary: name
+      sort:
+        - name
+      search:
+        - name
+        - role
+        - location
+      default:
+        sort: name
+        order: asc
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Lowercase name separated by hyphens, e.g. anna-lindberg
+        pattern: "^[a-z0-9-]+$"
+
+      - name: role
+        label: Role / description
+        type: string
+        description: Optional. E.g. poet, photographer, translator.
+
+      - name: portrait
+        label: Portrait
+        type: image
+        options:
+          media: images
+          rename: safe
+
+      - name: location
+        label: Location
+        type: string
+
+      - name: short_bio
+        label: Short bio
+        type: text
+        description: Used on cards and shorter contributor references.
+
+      - name: website
+        label: Website
+        type: string
+
+      - name: instagram
+        label: Instagram
+        type: string
+
+      - name: bluesky
+        label: Bluesky
+        type: string
+
+      - name: x
+        label: X / Twitter
+        type: string
+
+      - name: facebook
+        label: Facebook
+        type: string
+
+      - name: other_social
+        label: Other social / profile link
+        type: string
+
+      - name: books
+        label: Books
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+
+          - name: publisher
+            label: Publisher
+            type: string
+
+          - name: year
+            label: Year
+            type: string
+
+          - name: url
+            label: Book link
+            type: string
+
+      - name: draft
+        label: Draft profile
+        type: boolean
+        default: false
+
+      - name: body
+        label: Full bio
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: images
+
+  - name: issues
+    label: Issues / Compilations
+    type: collection
+    path: src/content/issues
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{slug}.md"
+      field: false
+    view:
+      fields:
+        - title
+        - season
+        - year
+        - published
+        - publish_date
+      primary: title
+      sort:
+        - year
+        - publish_date
+      search:
+        - title
+        - season
+      default:
+        sort: year
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+
+      - name: season
+        label: Season
+        type: select
+        required: true
+        options:
+          values:
+            - Spring
+            - Summer
+            - Autumn
+            - Winter
+
+      - name: year
+        label: Year
+        type: number
+        required: true
+
+      - name: description
+        label: Description
+        type: text
+        required: true
+
+      - name: cover
+        label: Cover / collection image
+        type: image
+        options:
+          media: images
+          rename: safe
+
+      - name: published
+        label: Published
+        type: boolean
+        default: false
+
+      - name: publish_date
+        label: Publication date
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+
+      - name: body
+        label: Editorial note
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
