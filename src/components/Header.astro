@@ -28,6 +28,7 @@ const active = (href: string) => pathname.replace(/\/+$/, '') === href.replace(/
         <li><details class="writing-menu"><summary>WORK <span aria-hidden="true">⌄</span></summary><ul>
           <li><a href="/writing/fiction/">Fiction</a></li><li><a href="/writing/poetry/">Poetry</a></li><li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li><li><a href="/writing/translation/">Translation</a></li><li><a href="/writing/art-photography/">Art &amp; Photography</a></li>
         </ul></details></li>
+        <li><a href="/contributors/" aria-current={active('/contributors/') ? 'page' : undefined}>CONTRIBUTORS</a></li>
         <li><a href="/interviews/">INTERVIEWS</a></li><li><a href="/about/">ABOUT</a></li><li><a href="/submit/">SUBMIT</a></li>
       </ul>
     </details>
@@ -37,6 +38,7 @@ const active = (href: string) => pathname.replace(/\/+$/, '') === href.replace(/
       <li><details class="writing-menu"><summary>WORK <span aria-hidden="true">⌄</span></summary><ul>
         <li><a href="/writing/fiction/">Fiction</a></li><li><a href="/writing/poetry/">Poetry</a></li><li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li><li><a href="/writing/translation/">Translation</a></li><li><a href="/writing/art-photography/">Art &amp; Photography</a></li>
       </ul></details></li>
+      <li><a href="/contributors/" aria-current={active('/contributors/') ? 'page' : undefined}>CONTRIBUTORS</a></li>
       <li><a href="/interviews/">INTERVIEWS</a></li><li><a href="/about/">ABOUT</a></li><li><a href="/submit/">SUBMIT</a></li>
     </ul></div>
   </nav>
