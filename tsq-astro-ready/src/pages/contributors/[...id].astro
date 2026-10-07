@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths(){
+  const contributors = await getCollection('contributors', ({data})=>!data.draft);
+  return contributors.map(entry=>({ params:{id:entry.id}, props:{entry} }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const works = (await getCollection('work', ({data})=>!data.draft && data.contributor===entry.id)).sort((a,b)=>b.data.publish_date.valueOf()-a.data.publish_date.valueOf());
+const d=entry.data;
+---
+<BaseLayout title={d.name}><article class="standard-page"><header class="page-heading wrap"><p class="eyebrow">Contributor</p><h1>{d.name}</h1>{d.role && <p class="standfirst">{d.role}</p>}</header><div class="gh-content"><div class="contributor-hero">{d.portrait && <div class="contributor-portrait"><img src={d.portrait} alt={`Portrait of ${d.name}`} /></div>}<div>{d.location && <p class="eyebrow">{d.location}</p>}<Content />{d.website && <p><a href={d.website} rel="me">Website ↗</a></p>}<div class="social-links">{d.instagram && <a href={d.instagram}>Instagram</a>}{d.bluesky && <a href={d.bluesky}>Bluesky</a>}{d.x && <a href={d.x}>X</a>}{d.facebook && <a href={d.facebook}>Facebook</a>}{d.other_social && <a href={d.other_social}>Social</a>}</div></div></div>{d.books?.length>0 && <><h2>Books</h2><ul class="book-list">{d.books.map(book=><li><strong>{book.url ? <a href={book.url}>{book.title}</a> : book.title}</strong>{book.publisher && <> — {book.publisher}</>}{book.year && <> ({book.year})</>}</li>)}</ul></>}{works.length>0 && <><h2>Work in TSQ</h2><div class="story-grid">{works.map(w=><WorkCard entry={w}/>)}</div></>}</div></article></BaseLayout>

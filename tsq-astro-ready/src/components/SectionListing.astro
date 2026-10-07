@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import WorkCard from './WorkCard.astro';
+const { eyebrow='Work', title, standfirst, categories, intro, submitHref='/submit/' } = Astro.props;
+const all = await getCollection('work', ({ data }) => !data.draft && categories.includes(data.category));
+const entries = all.sort((a,b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
+---
+<article class="standard-page">
+  <header class="page-heading wrap"><p class="eyebrow">{eyebrow}</p><h1>{title}</h1>{standfirst && <p class="standfirst">{standfirst}</p>}</header>
+  <div class="gh-content">
+    {intro && <p>{intro}</p>}
+    {entries.length ? <div class="story-grid">{entries.map(entry => <WorkCard entry={entry} />)}</div> : <div class="empty-state"><p>No published work in this section yet.</p><p><a href={submitHref}>Submit to this section →</a></p></div>}
+  </div>
+</article>

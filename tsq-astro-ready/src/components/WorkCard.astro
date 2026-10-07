@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content';
+const { entry } = Astro.props;
+const d = entry.data;
+const contributor = await getEntry('contributors', d.contributor);
+const authorName = contributor?.data.name ?? d.contributor.replace(/-/g,' ');
+const categoryLabels: Record<string,string> = { poetry:'Poetry', fiction:'Fiction', essay:'Essay', criticism:'Criticism', translation:'Translation', art:'Art', photography:'Photography', interview:'Interview' };
+---
+<article class="placeholder-card work-card">
+  {d.featured_image && <a href={`/work/${entry.id}/`} class="work-card-image"><img src={d.featured_image} alt={d.featured_image_alt ?? ''} loading="lazy" /></a>}
+  <p class="eyebrow">{categoryLabels[d.category] ?? d.category}</p>
+  <h3><a href={`/work/${entry.id}/`}>{d.title}</a></h3>
+  <p class="work-byline"><a href={`/contributors/${d.contributor}/`}>{authorName}</a></p>
+  {d.excerpt && <p>{d.excerpt}</p>}
+  <a class="read-link" href={`/work/${entry.id}/`}>Read <span aria-hidden="true">↗</span></a>
+</article>

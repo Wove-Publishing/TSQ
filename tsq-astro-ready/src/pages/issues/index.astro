@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const issues = (await getCollection('issues')).sort((a,b)=>b.data.year-a.data.year);
+---
+<BaseLayout title="Issues"><article class="standard-page"><header class="page-heading wrap"><p class="eyebrow">The magazine</p><h1>Issues</h1><p class="standfirst">Seasonal online collections of work first published by TSQ.</p></header><div class="wrap">{issues.map((issue,index)=><section class="current-issue"><div class="issue-cover">{issue.data.cover && <img src={issue.data.cover} alt={`${issue.data.title} cover`} />}</div><div class="issue-copy"><p class="eyebrow">{issue.data.published ? 'Online issue' : 'Forthcoming issue'}</p><h2>{issue.data.title}</h2><p>{issue.data.description}</p><div class="inline-actions"><a class="button" href={`/issues/${issue.id}/`}>{issue.data.published ? 'Read the issue' : 'Preview the issue'} <span aria-hidden="true">↗</span></a>{index===0 && <a class="read-link" href="/submit/">Submit work</a>}</div></div></section>)}</div></article></BaseLayout>

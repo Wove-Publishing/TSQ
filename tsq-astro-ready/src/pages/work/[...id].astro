@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+export async function getStaticPaths(){ const work=await getCollection('work',({data})=>!data.draft); return work.map(entry=>({params:{id:entry.id},props:{entry}})); }
+const {entry}=Astro.props;
+const {Content}=await render(entry);
+const d=entry.data;
+const contributor=await getEntry('contributors', d.contributor);
+const authorName=contributor?.data.name ?? d.contributor.replace(/-/g,' ');
+const date=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric'}).format(d.publish_date);
+const labels:Record<string,string>={poetry:'Poetry',fiction:'Fiction',essay:'Essay',criticism:'Criticism',translation:'Translation',art:'Art',photography:'Photography',interview:'Interview'};
+---
+<BaseLayout title={d.title} description={d.excerpt ?? `${d.title} by ${authorName}, published in The Scandinavian Quarterly.`}>
+<article class="standard-page work-article"><header class="page-heading wrap"><p class="eyebrow">{labels[d.category] ?? d.category}</p><h1>{d.title}</h1><p class="standfirst">by <a href={`/contributors/${d.contributor}/`}>{authorName}</a></p><div class="article-meta"><span>{date}</span>{d.issue && <a href={`/issues/${d.issue}/`}>Issue: {d.issue.replace(/-/g,' ')}</a>}</div></header>{d.featured_image && <div class="article-feature"><img src={d.featured_image} alt={d.featured_image_alt ?? ''} /></div>}<div class="gh-content">{d.previously_published && <p class="reprint-note">This work was first published{d.first_publication_title ? <> in <em>{d.first_publication_title}</em></> : null}{d.first_publication_date ? <> ({d.first_publication_date})</> : null}.{d.first_publication_url && <> <a href={d.first_publication_url}>View the original publication ↗</a></>}</p>}<Content /><hr/><p><a href={`/contributors/${d.contributor}/`}>More from {authorName} →</a></p></div></article>
+</BaseLayout>

@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+const entries = (await getCollection('work', ({data})=>!data.draft)).sort((a,b)=>b.data.publish_date.valueOf()-a.data.publish_date.valueOf());
+---
+<BaseLayout title="Latest"><article class="standard-page"><header class="page-heading wrap"><p class="eyebrow">New work</p><h1>Latest</h1><p class="standfirst">New writing, interviews, art and photography from TSQ.</p></header><div class="gh-content">{entries.length ? <div class="story-grid">{entries.map(entry=><WorkCard entry={entry}/>)}</div> : <><p>Our first pieces are forthcoming. The debut issue is planned for Spring 2027.</p><p>For current submission information, visit <a href="/submit/">Submit</a>.</p></>}</div></article></BaseLayout>

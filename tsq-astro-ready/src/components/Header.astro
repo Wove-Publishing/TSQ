@@ -1,0 +1,43 @@
+---
+import { site } from '../data/site';
+const { pathname } = Astro.url;
+const active = (href: string) => pathname.replace(/\/+$/, '') === href.replace(/\/+$/, '');
+---
+<header class="site-header wrap">
+  <div class="utility">
+    <a class="small-monogram" href="/" aria-label="TSQ home">TSQ</a>
+    <span>Literature · Arts · Ideas</span>
+    <div class="utility-right">
+      <a href="/donate/">Donate</a>
+      <a href={`mailto:${site.submissionsEmail}`}>Submissions</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-icon theme-icon-light">☼</span><span class="theme-icon theme-icon-dark">☾</span>
+      </button>
+    </div>
+  </div>
+  <a class="masthead-logo" href="/" aria-label="The Scandinavian Quarterly home">
+    <img src="/assets/images/tsq-wordmark.svg" alt="The Scandinavian Quarterly" />
+  </a>
+  <div class="masthead-caption"><span>An independent online magazine</span><span>Est. {site.established}</span></div>
+  <nav class="primary-nav" aria-label="Main navigation">
+    <details class="mobile-nav">
+      <summary>Menu <span aria-hidden="true">+</span></summary>
+      <ul class="nav-list">
+        <li><a href="/latest/" aria-current={active('/latest/') ? 'page' : undefined}>LATEST</a></li>
+        <li><a href="/issues/" aria-current={active('/issues/') ? 'page' : undefined}>ISSUES</a></li>
+        <li><details class="writing-menu"><summary>WORK <span aria-hidden="true">⌄</span></summary><ul>
+          <li><a href="/writing/fiction/">Fiction</a></li><li><a href="/writing/poetry/">Poetry</a></li><li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li><li><a href="/writing/translation/">Translation</a></li><li><a href="/writing/art-photography/">Art &amp; Photography</a></li>
+        </ul></details></li>
+        <li><a href="/interviews/">INTERVIEWS</a></li><li><a href="/about/">ABOUT</a></li><li><a href="/submit/">SUBMIT</a></li>
+      </ul>
+    </details>
+    <div class="desktop-nav"><ul class="nav-list">
+      <li><a href="/latest/" aria-current={active('/latest/') ? 'page' : undefined}>LATEST</a></li>
+      <li><a href="/issues/" aria-current={active('/issues/') ? 'page' : undefined}>ISSUES</a></li>
+      <li><details class="writing-menu"><summary>WORK <span aria-hidden="true">⌄</span></summary><ul>
+        <li><a href="/writing/fiction/">Fiction</a></li><li><a href="/writing/poetry/">Poetry</a></li><li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li><li><a href="/writing/translation/">Translation</a></li><li><a href="/writing/art-photography/">Art &amp; Photography</a></li>
+      </ul></details></li>
+      <li><a href="/interviews/">INTERVIEWS</a></li><li><a href="/about/">ABOUT</a></li><li><a href="/submit/">SUBMIT</a></li>
+    </ul></div>
+  </nav>
+</header>

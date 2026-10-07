@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const people = (await getCollection('contributors', ({data})=>!data.draft)).sort((a,b)=>a.data.name.localeCompare(b.data.name,'sv'));
+---
+<BaseLayout title="Contributors"><article class="standard-page"><header class="page-heading wrap"><p class="eyebrow">The people in the pages</p><h1>Contributors</h1><p class="standfirst">Writers, translators, artists and photographers published by TSQ.</p></header><div class="gh-content"><p>Every published contributor receives a dedicated profile page. Profiles may include a full biography, portrait, books and publication links, personal websites and social media accounts, alongside links to the contributor’s work in TSQ.</p><p>Eligible work by contributors is also considered by the editors for external nominations and annual recognition.</p>{people.length ? <div class="directory">{people.map(p=><article class="placeholder-card" data-name={p.data.name}><p class="eyebrow">Contributor</p><h3><a href={`/contributors/${p.id}/`}>{p.data.name}</a></h3>{p.data.short_bio && <p>{p.data.short_bio}</p>}<a class="read-link" href={`/contributors/${p.id}/`}>View profile →</a></article>)}</div> : <p class="empty-state">This directory will grow as new work is published.</p>}</div></article></BaseLayout>

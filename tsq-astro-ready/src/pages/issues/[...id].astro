@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths(){ const issues=await getCollection('issues'); return issues.map(entry=>({params:{id:entry.id},props:{entry}})); }
+const {entry}=Astro.props;
+const {Content}=await render(entry);
+const work=(await getCollection('work',({data})=>!data.draft && !data.previously_published && data.compilation_eligible && data.issue===entry.id)).sort((a,b)=>a.data.publish_date.valueOf()-b.data.publish_date.valueOf());
+---
+<BaseLayout title={entry.data.title}><article class="standard-page"><header class="page-heading wrap"><p class="eyebrow">Issue</p><h1>{entry.data.title}</h1><p class="standfirst">{entry.data.description}</p></header><div class="gh-content">{entry.data.cover && <img src={entry.data.cover} alt={`${entry.data.title} cover`} style="max-width:420px;width:100%;height:auto" />}<Content />{work.length ? <><h2>Contents</h2><div class="story-grid">{work.map(w=><WorkCard entry={w}/>)}</div></> : <p class="empty-state">Contents forthcoming. Only work first published by TSQ is included in issue compilations.</p>}</div></article></BaseLayout>
