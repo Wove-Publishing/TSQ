@@ -1,0 +1,70 @@
+---
+/** Site-wide Brevo subscription form for Letters from the North. */
+---
+<section class="letters-section" aria-labelledby="letters-heading">
+  <div class="wrap letters-grid">
+    <div class="letters-copy">
+      <p class="letters-kicker">THE SCANDINAVIAN QUARTERLY · NEWSLETTER</p>
+      <h2 id="letters-heading">Letters from the North</h2>
+      <p class="letters-subtitle">The newsletter of The Scandinavian Quarterly</p>
+      <p class="letters-description">A little of the North, delivered to your inbox. Discover new writing, Nordic literature, interviews, art, and the occasional recommendation from our editors.</p>
+    </div>
+    <div class="sib-form letters-form" id="sib-form-container">
+      <div id="error-message" class="sib-form-message-panel" role="alert" style="display:none">
+        <div class="sib-form-message-panel__text"><span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span></div>
+      </div>
+      <div id="success-message" class="sib-form-message-panel" role="status" style="display:none">
+        <div class="sib-form-message-panel__text"><span class="sib-form-message-panel__inner-text">Thank you! Check your inbox for a confirmation email if prompted.</span></div>
+      </div>
+      <div id="sib-container">
+        <form id="sib-form" method="POST" action="https://c33c31aa.sibforms.com/serve/MUIFAGkL6gqtHWnoiCsd6piW5bZWTuK57KcENMBm9Si_84R6ylB8FYY799oDKZNBqWMBVdkijTne7nKYg-afvkLWWXL5Dv-gd0BgYf7DhLiwpx9TE-xT_ke531q6wyvab2zse2FL8f3VGH6wKRbGJ_LGSEScCO5ViP1UhYZvuBx9AoeZu6uCVUp-c3gd6pi-OXXFHqh8KkDK5Dz-Gg==" data-type="subscription">
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row">
+                <label class="letters-label entry__label" for="EMAIL" data-required="*">Your email address</label>
+                <div class="entry__field">
+                  <input class="input letters-input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="you@example.com" data-required="true" required />
+                </div>
+              </div>
+              <label class="entry__error entry__error--primary" aria-live="polite"></label>
+            </div>
+          </div>
+          <button class="sib-form-block__button sib-form-block__button-with-loader letters-button" type="submit" form="sib-form">
+            <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/></svg>
+            SEND ME LETTERS <span aria-hidden="true">↗</span>
+          </button>
+          <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="locale" value="en" />
+        </form>
+      </div>
+      <p class="letters-note">Free to subscribe. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+<style>
+  .letters-section{background:#e9e6dc;color:#142b3b;border-top:1px solid #c9c7bd;padding:76px 0}
+  .letters-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,7vw,110px);align-items:center}
+  .letters-kicker{font:600 11px/1.5 'IBM Plex Sans',Arial,sans-serif;letter-spacing:.17em;color:#773e45;margin:0 0 20px}
+  .letters-copy h2{font:400 clamp(34px,4vw,54px)/1.18 'Libre Baskerville',Georgia,serif;letter-spacing:-.045em;margin:0 0 15px}
+  .letters-subtitle{font:italic 16px/1.5 'Libre Baskerville',Georgia,serif;margin:0 0 24px}
+  .letters-description{font:15px/1.8 'IBM Plex Sans',Arial,sans-serif;max-width:560px;margin:0}
+  .letters-form{background:transparent!important;text-align:left!important;padding:0!important}
+  .letters-form #sib-container{background:transparent!important;border:0!important;box-shadow:none!important;max-width:none!important;padding:0!important}
+  .letters-form #sib-form{display:flex;flex-direction:column;gap:16px}
+  .letters-form .letters-label{display:block;color:#142b3b;font:600 12px/1.4 'IBM Plex Sans',Arial,sans-serif;letter-spacing:.04em;margin:0 0 10px}
+  .letters-form .entry__field{border:0!important;background:transparent!important}
+  .letters-form .letters-input{display:block;width:100%;min-height:53px;background:#fff!important;border:1px solid #869198!important;border-radius:0!important;box-shadow:none!important;color:#142b3b!important;font:15px 'IBM Plex Sans',Arial,sans-serif;padding:14px 16px}
+  .letters-form .letters-input::placeholder{color:#69777e}
+  .letters-form .letters-button{align-self:flex-start;min-height:51px;border:1px solid #142b3b!important;border-radius:0!important;background:#142b3b!important;color:#fff!important;cursor:pointer;font:600 12px/1.4 'IBM Plex Sans',Arial,sans-serif!important;letter-spacing:.10em;padding:15px 25px!important}
+  .letters-form .letters-button:hover{background:#773e45!important;border-color:#773e45!important}
+  .letters-form .letters-button span{padding-left:15px}
+  .letters-form .entry__error{color:#8b252a!important;background:transparent!important;font-size:12px}
+  .letters-form .sib-form-message-panel{border-radius:0!important;max-width:none!important;padding:12px 15px!important;margin-bottom:18px!important;font:13px 'IBM Plex Sans',Arial,sans-serif!important}
+  .letters-form .letters-note{font:12px/1.6 'IBM Plex Sans',Arial,sans-serif;color:#56616a;margin:13px 0 0}
+  .letters-form .input--hidden{position:absolute!important;left:-9999px!important;opacity:0!important}
+  html.dark-mode .letters-section{background:#171d23;color:#f1eee7;border-top-color:#343c45}
+  html.dark-mode .letters-kicker{color:#cf7c84}
+  html.dark-mode .letters-form .letters-label{color:#f1eee7}
+  html.dark-mode .letters-form .letters-note{color:#a8afb5}
+  @media(max-width:750px){.letters-section{padding:50px 0}.letters-grid{grid-template-columns:1fr;gap:30px}.letters-form .letters-button{width:100%}}
+</style>
