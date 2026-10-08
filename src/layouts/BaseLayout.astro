@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { site } from '../data/site';
 interface Props { title?: string; description?: string; canonical?: string; }
 const { title, description = site.description, canonical } = Astro.props;
@@ -24,7 +25,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).toString
   <a class="skip-link" href="#main">Skip to content</a>
   <Header />
   <main id="main"><slot /></main>
+  <NewsletterSignup />
   <Footer />
+  <script src="https://sibforms.com/forms/end-form/build/main.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
