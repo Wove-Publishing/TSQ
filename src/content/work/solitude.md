@@ -12,7 +12,7 @@ previously_published: true
 first_publication_title: "Anthology “Opening Boundaries: Toward Finnish Heterolinational Literatures” "
 compilation_eligible: false
 first_publication_url: https://www.amazon.com/Opening-Boundaries-Finnish-Heterolinational-Literatures/dp/9528020194
-first_publication_date: 2019-12-17
+first_publication_date: "2019-12-17"
 ---
 The rivers run dry in the summer and the birds leave for the winter. It’s a strange place, where I’m from. Sometimes, at night, I hear my heart beating but place my hand over my chest only to feel nothing. I quickly move my fingers around, reassured to find the beat a little lower down near my stomach.
 
