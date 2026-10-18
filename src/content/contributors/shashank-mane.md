@@ -17,5 +17,4 @@ draft: false
 ---
 Shashank Mane was born in Mumbai, India, but moved away as child, spending years in Switzerland, the USA, and Panama. In 2013, he moved to Finland. Mane started writing fiction and poetry soon thereafter with his short stories and poetry appearing in various literary anthologies, reviews and journals in the USA, the UK and Finland.   
 
-
 He has authored three books, the latest being a poetry collection entitled “The Many Moods of the Moon” (Rosetta Versos, 2024). Mane is a member of the Finnish PEN and the American Academy of Poets. He has a four-year-old daughter, Ilona, who is the source of his joy.
