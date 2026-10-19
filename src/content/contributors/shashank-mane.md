@@ -14,6 +14,7 @@ books:
     year: "2017"
     url: https://www.amazon.com/dp/154256123X?lv=shuf&channelId=500&plpRedirect=mhFallback
 draft: false
+short_bio: Poet
 ---
 Shashank Mane was born in Mumbai, India, but moved away as child, spending years in Switzerland, the USA, and Panama. In 2013, he moved to Finland. Mane started writing fiction and poetry soon thereafter with his short stories and poetry appearing in various literary anthologies, reviews and journals in the USA, the UK and Finland.   
 
