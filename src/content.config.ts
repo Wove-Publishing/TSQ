@@ -17,7 +17,12 @@ const work = defineCollection({
     previously_published: z.boolean().default(false),
     first_publication_title: z.string().optional(),
     first_publication_url: z.string().optional(),
-    first_publication_date: z.string().optional(),
+    // Pages CMS may write unquoted YAML dates; Astro's YAML parser turns them into Date objects.
+    // Normalize both YAML dates and quoted date strings to the same YYYY-MM-DD string.
+    first_publication_date: z.preprocess(
+      (value) => value instanceof Date ? value.toISOString().slice(0, 10) : value,
+      z.string().optional()
+    ),
     compilation_eligible: z.boolean().default(true),
     issue: z.string().optional()
   })
