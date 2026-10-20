@@ -12,7 +12,9 @@ first_publication_url: https://www.rivenerlit.com/steffanie-edwins-1
 first_publication_date: 2026-06-15
 compilation_eligible: false
 ---
-The first me was at Arlanda airport, Terminal 5, in a plastic box with three scarves, a Samsung charger and someone’s left shoe.
+The first me was at Arlanda airport, Terminal 5, in a plastic box with three scarves, 
+
+a Samsung charger and someone’s left shoe.
 
 The woman at the desk asked what I had lost.
 
