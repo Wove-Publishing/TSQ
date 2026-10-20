@@ -3,7 +3,7 @@ title: Lost Property
 slug: lost-property
 contributor: steffanie-edwins
 category: poetry
-publish_date: 2026-06-02
+publish_date: 2026-09-08
 featured: true
 draft: false
 previously_published: true
