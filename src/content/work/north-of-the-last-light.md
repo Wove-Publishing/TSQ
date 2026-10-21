@@ -4,8 +4,6 @@ slug: north-of-the-last-light
 contributor: mikael-hakala
 category: poetry
 publish_date: 2026-10-05
-featured_image: /assets/images/pederbalke-thenorthcapebymoonlight-20191674-metropolitanmuseumofart.jpg
-featured_image_alt: The North Cape by Moonlight by Peder Balke (1848)
 featured: true
 draft: false
 previously_published: false
