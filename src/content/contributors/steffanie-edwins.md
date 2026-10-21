@@ -12,7 +12,7 @@ books:
     url: https://www.amazon.com/CAUSE-DEATH-LIVING-Steffanie-Edwins/dp/9199205610/ref=tmm_pap_swatch_0
 draft: false
 ---
-Steffanie Edwins is a Sweden-based poet and essayist, with a particular interest in folklore, literary history, old texts, and the strange ways stories survive their tellers.
+Steffanie Edwins is a Sweden-based poet and essayist, with a particular interest in folklore, literary history, old texts, and all the old stories whose original tellers we no longer know.
 
 Her work has appeared or is forthcoming in seven literary publications including *Rivener Literary*, US Catholic magazine, London Review, Scientific America. She is also the poetry editor of *Lore Lorn*, a literary magazine devoted to folklore, legend, oral tradition, and the stories people inherit, alter, misremember, and pass on.
 
