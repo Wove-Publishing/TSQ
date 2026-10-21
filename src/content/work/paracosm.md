@@ -10,6 +10,7 @@ previously_published: true
 first_publication_title: Write the World
 first_publication_url: https://writetheworld.org/viewing-a-piece/1655848?backUrl=%2Fprofile-page%2F73eab8dd-63bf-40e6-981a-ae70cd1ff037
 compilation_eligible: false
+excerpt: Originally published as part of the ‘Write the Word’ short story competition
 ---
 **Age six**
 
