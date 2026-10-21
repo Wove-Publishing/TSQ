@@ -4,7 +4,6 @@ slug: iceberg
 contributor: traci-neal
 category: poetry
 publish_date: 2026-10-20
-featured_image: /assets/images/chatgpt-image-21-oct-2026-215201.jpg
 featured_image_alt: Frederic Edwin Church, The Icebergs, 1861. Public domain. Dallas Museum of Art.
 featured: true
 draft: false
@@ -24,7 +23,7 @@ but what hits
 
 harder than rocks
 
- 
+
 
 is an iceberg,
 
@@ -38,7 +37,7 @@ deeply sits at
 
 the bottom.
 
- 
+
 
 The cold, sharp chills
 
@@ -50,7 +49,7 @@ while my
 
 boat lost some
 
- 
+
 
 broken parts,
 
@@ -62,7 +61,7 @@ where I learn
 
 how to swim
 
- 
+
 
 around the
 
@@ -76,7 +75,7 @@ to get to
 
 the other
 
- 
+
 
 side, since turns,
 
