@@ -1058,6 +1058,14 @@ figcaption {
   line-height: 1.95;
 }
 
+/* Pages CMS represents some verse lines as individual paragraphs.
+   Tighten only those lines; intentional blank spacer paragraphs still
+   provide a visible gap between stanzas. */
+.work-poetry.compact-poetry-lines .gh-content > p:not(.reprint-note) {
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
 /* =========================
    POST END / AUTHORS
    ========================= */
