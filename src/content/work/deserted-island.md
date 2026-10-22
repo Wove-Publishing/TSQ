@@ -28,6 +28,8 @@ as a connection.
 
 
 
+&nbsp;
+
 When I watch 
 
 the sun meet 
@@ -39,6 +41,8 @@ a mountain,
 they collect light. 
 
 
+
+&nbsp;
 
 This is isolation 
 
@@ -52,6 +56,8 @@ steep hills.
 
 
 
+&nbsp;
+
 This is peace 
 
 wanting to tell
@@ -63,6 +69,8 @@ within storms
 and be a village. 
 
 
+
+&nbsp;
 
 The island waits 
 
