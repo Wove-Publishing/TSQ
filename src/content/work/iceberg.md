@@ -23,6 +23,8 @@ but what hits
 
 harder than rocks
 
+
+
 &nbsp;
 
 is an iceberg,
@@ -37,6 +39,8 @@ deeply sits at
 
 the bottom.
 
+
+
 &nbsp;
 
 The cold, sharp chills
@@ -49,6 +53,8 @@ while my
 
 boat lost some
 
+
+
 &nbsp;
 
 broken parts,
@@ -60,6 +66,8 @@ the blue sea
 where I learn
 
 how to swim
+
+
 
 &nbsp;
 
@@ -74,6 +82,8 @@ over it
 to get to
 
 the other
+
+
 
 &nbsp;
 
