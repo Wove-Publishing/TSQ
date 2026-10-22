@@ -1050,6 +1050,14 @@ figcaption {
   padding: 18px 0;
 }
 
+/* Preserve the line breaks contributors enter in poetry via Pages CMS.
+   Blank Markdown lines remain separate stanzas; prose is unaffected. */
+.work-poetry .gh-content > p:not(.reprint-note) {
+  white-space: pre-line;
+  hyphens: none;
+  line-height: 1.95;
+}
+
 /* =========================
    POST END / AUTHORS
    ========================= */
