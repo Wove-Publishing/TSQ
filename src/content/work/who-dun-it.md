@@ -10,21 +10,21 @@ previously_published: false
 compilation_eligible: true
 issue: spring-2027
 ---
-I think anti psychotics ruined my life   
+I think anti psychotics ruined my life  
 or was it the psychosis?  
-Could have been the misdiagnosis   
+Could have been the misdiagnosis  
 but it could also have been my ex-wife
 
 
 
-It could have been the tainted water   
+It could have been the tainted water  
 from the lead pipes  
 the chemicals in the wet wipes  
 to leave me stunted like a blunted pen knife
 
 
 
-I think I might have been laid flat   
+I think I might have been laid flat  
 for too long as baby on my back  
 Or was it the hip-hop?  
 that warped my mind  
@@ -39,11 +39,11 @@ too sleepy to hold on and blink
 
 
 
-It might have been the television,   
-the phone and the cigarettes   
+It might have been the television,  
+the phone and the cigarettes  
 to have blurred my vision  
-or the lack of supervision   
-to have spurred me on to crap on it all   
+or the lack of supervision  
+to have spurred me on to crap on it all  
 like a pigeon
 
 
@@ -57,7 +57,7 @@ Actually…I think it’s all because of the lack of sunny weather
 
 Now I’ll sleep a million ways  
 let my mind swerve and sway  
-this day was never promised   
+this day was never promised  
 and tomorrow is likely still gray  
 but it is what it is  
 so I’ll still head out to play
