@@ -1050,19 +1050,26 @@ figcaption {
   padding: 18px 0;
 }
 
-/* Preserve the line breaks contributors enter in poetry via Pages CMS.
-   Blank Markdown lines remain separate stanzas; prose is unaffected. */
+/* Poetry typesetting: single-spaced verse lines, with a clear gap
+   between stanzas (separate Markdown paragraphs). */
 .work-poetry .gh-content > p:not(.reprint-note) {
   white-space: pre-line;
   hyphens: none;
-  line-height: 1.95;
+  line-height: 1.55;
+  margin-bottom: 1.5em;
 }
 
-/* Pages CMS represents some verse lines as individual paragraphs.
-   Tighten only those lines; intentional blank spacer paragraphs still
-   provide a visible gap between stanzas. */
+/* Markdown hard line breaks already create <br> elements. Keeping
+   pre-line as well would render an unwanted second line break. */
+.work-poetry.poetry-hard-breaks .gh-content > p:not(.reprint-note) {
+  white-space: normal;
+}
+
+/* Pages CMS can also save every verse line as its own paragraph.
+   Remove paragraph margins only for those poems. Deliberate spacer
+   paragraphs still give stanzas their breathing room. */
 .work-poetry.compact-poetry-lines .gh-content > p:not(.reprint-note) {
-  line-height: 1.55;
+  white-space: normal;
   margin-bottom: 0;
 }
 
