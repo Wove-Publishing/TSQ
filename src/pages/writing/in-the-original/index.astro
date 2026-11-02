@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import { getOriginalLanguage, languageFilters } from '../../../data/originalLanguages';
 
 const works = (
-  await getCollection('work', ({ data }) => !data.draft && Boolean(getOriginalLanguage(data.original_language, data.language_detail)))
+  await getCollection('work', ({ data }) => !data.draft && Boolean(getOriginalLanguage(data.original_language, data.language_detail)) && data.original_language !== 'en')
 )
   .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
   .map((entry) => ({ entry, language: getOriginalLanguage(entry.data.original_language, entry.data.language_detail)! }));
@@ -19,9 +19,9 @@ const works = (
       <p class="standfirst">Writing in the languages of the Nordic region, read as it was written.</p>
     </header>
     <div class="gh-content">
-      <p>Poetry, fiction, essays and literary work in Swedish, Norwegian, Danish, Finnish, Icelandic, Faroese, Sámi, Greenlandic and other languages of the Nordic region. English translations are welcome, but never required.</p>
+      <p>Poetry, fiction, essays and literary work in Swedish, Norwegian, Danish, Finnish, Icelandic, Faroese, Sámi, Greenlandic and other languages of the Nordic region. English translations are welcome, but never required. <a href="/languages/">Browse Languages →</a></p>
       <div class="language-filters" role="group" aria-label="Filter writing by original language">
-        {languageFilters.map(({ id, label }) => (
+        {languageFilters.filter(({id})=>id!=='english').map(({ id, label }) => (
           <button type="button" class="language-filter" data-language-filter={id} aria-pressed={id === 'all' ? 'true' : 'false'}>{label}</button>
         ))}
       </div>

@@ -8,8 +8,12 @@ const work = defineCollection({
     slug: z.string(),
     contributor: z.string(),
     category: z.enum(['poetry', 'fiction', 'essay', 'criticism', 'translation', 'art', 'photography', 'interview']),
-    // Only explicitly tagged original-language work appears in In the Original.
-    original_language: z.enum(['sv', 'nb', 'nn', 'da', 'fi', 'is', 'fo', 'sme', 'smj', 'sma', 'smn', 'sms', 'kl', 'fit', 'fkv', 'other']).optional(),
+    // Languages are assigned explicitly; do not assume older entries were originally English.
+    original_language: z.enum(['sv', 'nb', 'nn', 'da', 'fi', 'is', 'fo', 'sme', 'smj', 'sma', 'smn', 'sms', 'kl', 'fit', 'fkv', 'en', 'other']).optional(),
+    // Optional language of the text in Work, when different from its source language.
+    publication_language: z.enum(['sv', 'nb', 'nn', 'da', 'fi', 'is', 'fo', 'sme', 'smj', 'sma', 'smn', 'sms', 'kl', 'fit', 'fkv', 'en', 'other']).optional(),
+    publication_language_detail: z.string().optional(),
+    is_translation: z.boolean().default(false),
     language_detail: z.string().optional(),
     english_title: z.string().optional(),
     english_summary: z.string().optional(),

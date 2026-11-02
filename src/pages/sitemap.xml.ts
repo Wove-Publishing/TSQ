@@ -1,14 +1,16 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { languageGroups } from '../data/originalLanguages';
 
 export const GET: APIRoute = async () => {
   const base = 'https://www.thescandinavianquarterly.com';
-  const staticPaths = ['/', '/latest/', '/issues/', '/contributors/', '/interviews/', '/about/', '/submit/', '/submission-guidelines/', '/masthead/', '/nominations/', '/donate/', '/contact/', '/writing/poetry/', '/writing/fiction/', '/writing/essays-criticism/', '/writing/translation/', '/writing/art-photography/'];
+  const staticPaths = ['/', '/latest/', '/issues/', '/contributors/', '/interviews/', '/about/', '/submit/', '/submission-guidelines/', '/masthead/', '/nominations/', '/donate/', '/contact/', '/writing/poetry/', '/writing/fiction/', '/writing/essays-criticism/', '/writing/translation/', '/writing/art-photography/', '/writing/in-the-original/', '/languages/'];
   const work = await getCollection('work', ({data}) => !data.draft);
   const contributors = await getCollection('contributors', ({data}) => !data.draft);
   const issues = await getCollection('issues');
   const urls = [
     ...staticPaths.map(path => base + path),
+    ...languageGroups.map(group => `${base}/languages/${group.id}/`),
     ...work.map(x => `${base}/work/${x.id}/`),
     ...contributors.map(x => `${base}/contributors/${x.id}/`),
     ...issues.map(x => `${base}/issues/${x.id}/`)

@@ -95,9 +95,9 @@ content:
               label: Interview
 
       - name: original_language
-        label: Original language (In the Original)
+        label: Original language
         type: select
-        description: Choose the language in which the work was originally written. Leave empty for English-language work. This adds the piece to In the Original.
+        description: Choose the language in which the work was FIRST written, including English. Determines its Languages section. Leave blank for visual art. Review existing work before assigning.
         options:
           values:
             - name: sv
@@ -130,6 +130,8 @@ content:
               label: Meänkieli
             - name: fkv
               label: Kven
+            - name: en
+              label: English
             - name: other
               label: Other Nordic language
 
@@ -137,6 +139,57 @@ content:
         label: Language name (if Other)
         type: string
         description: Specify the language if Other Nordic language is selected.
+
+      - name: publication_language
+        label: Published text language (if different)
+        type: select
+        description: Only select if the main Work text is in a different language from the original.
+        options:
+          values:
+            - name: sv
+              label: Swedish
+            - name: nb
+              label: Norwegian — Bokmål
+            - name: nn
+              label: Norwegian — Nynorsk
+            - name: da
+              label: Danish
+            - name: fi
+              label: Finnish
+            - name: is
+              label: Icelandic
+            - name: fo
+              label: Faroese
+            - name: kl
+              label: Greenlandic (Kalaallisut)
+            - name: sme
+              label: Northern Sámi
+            - name: smj
+              label: Lule Sámi
+            - name: sma
+              label: Southern Sámi
+            - name: smn
+              label: Inari Sámi
+            - name: sms
+              label: Skolt Sámi
+            - name: fit
+              label: Meänkieli
+            - name: fkv
+              label: Kven
+            - name: en
+              label: English
+            - name: other
+              label: Other Nordic language
+
+      - name: publication_language_detail
+        label: Published text language name (if Other)
+        type: string
+
+      - name: is_translation
+        label: Is this a translation?
+        type: boolean
+        default: false
+        description: A translation may still be categorised as Poetry or Fiction and will also appear in the Translation section.
 
       - name: english_title
         label: English title (optional)

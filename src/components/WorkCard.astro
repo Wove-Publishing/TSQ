@@ -10,7 +10,7 @@ const categoryLabels: Record<string,string> = { poetry:'Poetry', fiction:'Fictio
 ---
 <article class="placeholder-card work-card">
   {d.featured_image && <a href={`/work/${entry.id}/`} class="work-card-image"><img src={d.featured_image} alt={d.featured_image_alt ?? ''} loading="lazy" /></a>}
-  <p class="eyebrow">{categoryLabels[d.category] ?? d.category}{originalLanguage && <> · <a href={`/writing/in-the-original/?language=${originalLanguage.group}`}>{originalLanguage.label}</a></>}</p>
+  <p class="eyebrow">{categoryLabels[d.category] ?? d.category}{originalLanguage && <> · <a href={`/languages/${originalLanguage.group}/`}>{originalLanguage.label}</a></>}</p>
   <h3><a href={`/work/${entry.id}/`}>{d.title}</a></h3>
   <p class="work-byline"><a href={`/contributors/${d.contributor}/`}>{authorName}</a></p>
   {d.excerpt && <p>{d.excerpt}</p>}

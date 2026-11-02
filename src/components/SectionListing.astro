@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import WorkCard from './WorkCard.astro';
-const { eyebrow='Work', title, standfirst, categories, intro, submitHref='/submit/' } = Astro.props;
-const all = await getCollection('work', ({ data }) => !data.draft && categories.includes(data.category));
+const { eyebrow='Work', title, standfirst, categories, includeTranslations=false, intro, submitHref='/submit/' } = Astro.props;
+const all = await getCollection('work', ({ data }) => !data.draft && (categories.includes(data.category) || (includeTranslations && (data.is_translation || Boolean(data.english_translation) || Boolean(data.translator)))));
 const entries = all.sort((a,b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
 ---
 <article class="standard-page">

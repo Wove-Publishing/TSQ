@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+import { getOriginalLanguage, languageGroups } from '../../data/originalLanguages';
+
+export function getStaticPaths() {
+  return languageGroups.map(group=>({params:{group:group.id},props:{group}}));
+}
+const {group}=Astro.props;
+const entries=(await getCollection('work',({data})=>!data.draft && getOriginalLanguage(data.original_language,data.language_detail)?.group===group.id))
+  .sort((a,b)=>b.data.publish_date.valueOf()-a.data.publish_date.valueOf());
+const genres=[
+  {id:'all',label:'All writing'},{id:'poetry',label:'Poetry'},{id:'fiction',label:'Fiction'},
+  {id:'essay',label:'Essays'},{id:'criticism',label:'Criticism'},
+  {id:'translation',label:'Translations'},{id:'interview',label:'Interviews'}
+];
+function classify(entry:(typeof entries)[number]) {
+  const ids:string[]=[entry.data.category];
+  if(entry.data.is_translation || entry.data.english_translation || entry.data.translator)
+    if(!ids.includes('translation'))ids.push('translation');
+  return ids.join(' ');
+}
+---
+<BaseLayout title={`${group.label} Literature`} description={group.description}>
+  <article class="standard-page language-page">
+    <header class="page-heading wrap">
+      <p class="eyebrow"><a href="/languages/">Languages</a> / {group.label}</p>
+      <h1>{group.label}</h1>
+      <p class="standfirst">{group.description}</p>
+    </header>
+    <div class="wrap language-page-body">
+      <p class="language-page-note">Works are grouped by their original language. Where available, translations are credited with the work. An English translation is not required.</p>
+      <nav class="language-genres" aria-label={`Filter ${group.label} writing by genre`}>
+        {genres.map(genre=><button class="language-genre-button" type="button" data-genre-filter={genre.id} aria-pressed={genre.id==='all'?'true':'false'}>{genre.label}</button>)}
+      </nav>
+      <p class="language-count" data-genre-count aria-live="polite">{entries.length} {entries.length===1?'work':'works'}</p>
+      <div class="story-grid language-work-grid">
+        {entries.map(entry=><div class="language-work-item" data-genre-list={classify(entry)}><WorkCard entry={entry}/></div>)}
+      </div>
+      <div class="empty-state" data-genre-empty hidden={entries.length>0}>
+        <p>There is no published work in this selection yet.</p><p><a href="/submission-guidelines/">Submit work in {group.label} →</a></p>
+      </div>
+      <p class="language-back"><a href="/languages/">← All languages</a></p>
+    </div>
+  </article>
+</BaseLayout>
+<script>
+  const buttons=Array.from(document.querySelectorAll<HTMLButtonElement>('[data-genre-filter]'));
+  const cards=Array.from(document.querySelectorAll<HTMLElement>('[data-genre-list]'));
+  const count=document.querySelector<HTMLElement>('[data-genre-count]');
+  const empty=document.querySelector<HTMLElement>('[data-genre-empty]');
+  const valid=new Set(buttons.map(b=>b.dataset.genreFilter));
+  function filterGenre(requested:string,writeUrl=false){
+    const selected=valid.has(requested)?requested:'all';
+    let visible=0;
+    for(const card of cards){
+      const match=selected==='all'||(card.dataset.genreList??'').split(' ').includes(selected);
+      card.hidden=!match;if(match)visible++;
+    }
+    for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.genreFilter===selected));
+    if(count)count.textContent=`${visible} ${visible===1?'work':'works'}`;
+    if(empty)empty.hidden=visible!==0;
+    if(writeUrl){
+      const url=new URL(window.location.href);
+      if(selected==='all')url.searchParams.delete('genre');else url.searchParams.set('genre',selected);
+      window.history.replaceState({},'',url);
+    }
+  }
+  for(const b of buttons)b.addEventListener('click',()=>filterGenre(b.dataset.genreFilter||'all',true));
+  filterGenre(new URLSearchParams(window.location.search).get('genre')||'all');
+  window.addEventListener('popstate',()=>filterGenre(new URLSearchParams(window.location.search).get('genre')||'all'));
+</script>
