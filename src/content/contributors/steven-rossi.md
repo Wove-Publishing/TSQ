@@ -2,6 +2,7 @@
 name: Steven Rossi
 slug: steven-rossi
 role: Poet
+portrait: /assets/images/steven-rossi-portrait.webp
 location: Maryland, United States
 draft: true
 ---
