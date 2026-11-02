@@ -3,9 +3,9 @@ title: Boy Under The Lights
 slug: boy-under-the-lights
 contributor: steven-rossi
 category: poetry
-publish_date: 2026-11-02
+publish_date: 2026-10-20
 featured: false
-draft: true
+draft: false
 ---
 Boy under the lights,  
 one day you’ll get married.  
