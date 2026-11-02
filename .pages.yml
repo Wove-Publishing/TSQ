@@ -94,6 +94,70 @@ content:
             - name: interview
               label: Interview
 
+      - name: original_language
+        label: Original language (In the Original)
+        type: select
+        description: Choose the language in which the work was originally written. Leave empty for English-language work. This adds the piece to In the Original.
+        options:
+          values:
+            - name: sv
+              label: Swedish
+            - name: nb
+              label: Norwegian — Bokmål
+            - name: nn
+              label: Norwegian — Nynorsk
+            - name: da
+              label: Danish
+            - name: fi
+              label: Finnish
+            - name: is
+              label: Icelandic
+            - name: fo
+              label: Faroese
+            - name: sme
+              label: Northern Sámi
+            - name: smj
+              label: Lule Sámi
+            - name: sma
+              label: Southern Sámi
+            - name: smn
+              label: Inari Sámi
+            - name: sms
+              label: Skolt Sámi
+            - name: kl
+              label: Greenlandic (Kalaallisut)
+            - name: fit
+              label: Meänkieli
+            - name: fkv
+              label: Kven
+            - name: other
+              label: Other Nordic language
+
+      - name: language_detail
+        label: Language name (if Other)
+        type: string
+        description: Specify the language if Other Nordic language is selected.
+
+      - name: english_title
+        label: English title (optional)
+        type: string
+        description: A translation of the title; the original title above remains unchanged.
+
+      - name: english_summary
+        label: English synopsis (optional)
+        type: text
+        description: Short summary for readers; no full translation is required.
+
+      - name: english_translation
+        label: English translation (optional)
+        type: text
+        description: Optional English text. Retain stanza and paragraph breaks. The original work remains in the main Work field.
+
+      - name: translator
+        label: English translator credit (optional)
+        type: string
+        description: Credit the translator and confirm translation rights before publication.
+
       - name: publish_date
         label: Publication date
         type: date
