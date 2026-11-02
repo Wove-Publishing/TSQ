@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import WorkCard from '../../../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+import { getOriginalLanguage, languageFilters } from '../../../data/originalLanguages';
+
+const works = (
+  await getCollection('work', ({ data }) => !data.draft && Boolean(getOriginalLanguage(data.original_language, data.language_detail)))
+)
+  .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
+  .map((entry) => ({ entry, language: getOriginalLanguage(entry.data.original_language, entry.data.language_detail)! }));
+---
+
+<BaseLayout title="In the Original" description="Poetry, fiction, essays and literary writing in the original languages of the Nordic region, from The Scandinavian Quarterly.">
+  <article class="standard-page original-directory">
+    <header class="page-heading wrap">
+      <p class="eyebrow">Work / Nordic languages</p>
+      <h1>In the Original</h1>
+      <p class="standfirst">Writing in the languages of the Nordic region, read as it was written.</p>
+    </header>
+    <div class="gh-content">
+      <p>Poetry, fiction, essays and literary work in Swedish, Norwegian, Danish, Finnish, Icelandic, Faroese, Sámi, Greenlandic and other languages of the Nordic region. English translations are welcome, but never required.</p>
+      <div class="language-filters" role="group" aria-label="Filter writing by original language">
+        {languageFilters.map(({ id, label }) => (
+          <button type="button" class="language-filter" data-language-filter={id} aria-pressed={id === 'all' ? 'true' : 'false'}>{label}</button>
+        ))}
+      </div>
+      <p class="language-count" data-language-count aria-live="polite">{works.length} {works.length === 1 ? 'work' : 'works'}</p>
+      <div class="story-grid original-results" data-language-results>
+        {works.map(({ entry, language }) => (
+          <div class="language-result" data-language-group={language.group}>
+            <WorkCard entry={entry} />
+          </div>
+        ))}
+      </div>
+      <div class="empty-state" data-language-empty hidden={works.length > 0}>
+        <p>No published work in this language yet.</p>
+        <p><a href="/submission-guidelines/">Read the submission guidelines →</a></p>
+      </div>
+      <p class="original-submit">Have a piece written in a Nordic language? <a href="/submission-guidelines/">See how to submit it.</a></p>
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-language-filter]'));
+  const entries = Array.from(document.querySelectorAll<HTMLElement>('[data-language-group]'));
+  const count = document.querySelector<HTMLElement>('[data-language-count]');
+  const empty = document.querySelector<HTMLElement>('[data-language-empty]');
+  const validFilters = new Set(filters.map((button) => button.dataset.languageFilter));
+
+  function showLanguage(requested: string, writeUrl = false) {
+    const selected = validFilters.has(requested) ? requested : 'all';
+    let visible = 0;
+    for (const entry of entries) {
+      const matches = selected === 'all' || entry.dataset.languageGroup === selected;
+      entry.hidden = !matches;
+      if (matches) visible += 1;
+    }
+    for (const button of filters) {
+      button.setAttribute('aria-pressed', String(button.dataset.languageFilter === selected));
+    }
+    if (count) count.textContent = `${visible} ${visible === 1 ? 'work' : 'works'}`;
+    if (empty) empty.hidden = visible !== 0;
+
+    if (writeUrl) {
+      const url = new URL(window.location.href);
+      if (selected === 'all') url.searchParams.delete('language');
+      else url.searchParams.set('language', selected);
+      window.history.replaceState({}, '', url);
+    }
+  }
+
+  for (const button of filters) {
+    button.addEventListener('click', () => showLanguage(button.dataset.languageFilter || 'all', true));
+  }
+  showLanguage(new URLSearchParams(window.location.search).get('language') || 'all');
+  window.addEventListener('popstate', () => showLanguage(new URLSearchParams(window.location.search).get('language') || 'all'));
+</script>
