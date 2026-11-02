@@ -3,9 +3,9 @@ title: Fremont
 slug: fremont
 contributor: steven-rossi
 category: poetry
-publish_date: 2026-11-02
+publish_date: 2026-10-20
 featured: false
-draft: true
+draft: false
 ---
 You are 9 years old and the world is bright. The lights are everywhere, cascading across block
 after block of the Vegas strip. The night is brighter than the day, the neon swirling across the
