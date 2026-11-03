@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WorkCard from '../../components/WorkCard.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -89,9 +88,14 @@ const hasPortrait = Boolean(d.portrait);
         <div class="section-heading">
           <h2>Work in TSQ</h2>
         </div>
-        <div class="story-grid">
-          {works.map((work) => <WorkCard entry={work} />)}
-        </div>
+        <ul class="contributor-work-list">
+          {works.map(work => (
+            <li>
+              <a href={`/work/${work.id}/`}>{work.data.title}</a>
+              <span class="contributor-work-category"> — {work.data.category === 'fiction' ? 'Fiction' : work.data.category === 'poetry' ? 'Poetry' : work.data.category === 'essay' ? 'Essay' : work.data.category === 'criticism' ? 'Criticism' : work.data.category === 'photography' ? 'Photography' : work.data.category === 'art' ? 'Art' : work.data.category === 'translation' ? 'Translation' : 'Interview'}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     )}
   </article>

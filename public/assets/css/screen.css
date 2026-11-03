@@ -380,13 +380,13 @@ html.dark-mode .writing-menu > ul {
 .read-link {
   display: inline-block;
   font-size: 13px;
-  border-bottom: 1px solid var(--red);
-  padding-bottom: 5px;
+  border: 0;
+  padding-bottom: 0;
   margin-top: 8px;
 }
 
 .read-link span {
-  margin-left: 16px;
+  margin-left: 7px;
 }
 
 /* =========================
@@ -539,8 +539,6 @@ button[type=submit]:hover {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  border-top: 1px solid var(--ink);
-  padding-top: 18px;
   margin-bottom: 30px;
   gap: 20px;
 }
@@ -1769,8 +1767,7 @@ html.dark-mode .kg-bookmark-description {
   object-fit: cover;
 }
 .placeholder-card {
-  border-top: 1px solid var(--rule);
-  padding-top: 18px;
+  padding-top: 0;
 }
 .placeholder-card p { color: var(--muted); }
 .email-panel {
@@ -1901,6 +1898,22 @@ html.dark-mode .kg-bookmark-description {
 }
 
 /* Astro content system */
+/* Published work remains in its existing grid, without decorative rules
+   or underlines beneath titles, author names and Read links. */
+.work-card,
+.work-card.placeholder-card {
+  border: 0;
+}
+.work-card a,
+.gh-content .work-card a,
+.work-card a:hover,
+.gh-content .work-card a:hover {
+  text-decoration: none;
+  border: 0;
+}
+.work-card .read-link {
+  padding-bottom: 0;
+}
 .work-card h3 a { color: inherit; text-decoration: none; }
 .work-card h3 a:hover { text-decoration: underline; text-underline-offset: .18em; }
 .work-card-image { display:block; margin:-.2rem -.2rem 1rem; overflow:hidden; aspect-ratio: 4 / 3; }
@@ -2145,4 +2158,43 @@ html.dark-mode .kg-bookmark-description {
   .language-index-card h2 { font-size: 27px; }
   .language-genre-button { padding: 9px 11px; }
   .languages-menu > ul { width: 100%; max-height: none; overflow: visible; }
+}
+
+/* Contributor directory and individual contributor bibliographies:
+   simple typographic lists instead of cards or horizontal dividers. */
+.contributors-name-list,
+.contributor-work-list {
+  grid-column: main;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contributors-name-list li,
+.contributor-work-list li {
+  border: 0;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.contributors-name-list a {
+  font: 21px/1.5 var(--serif);
+}
+.contributors-name-list a,
+.gh-content .contributors-name-list a,
+.contributor-work-list a,
+.contributor-page .contributor-work-list a,
+.contributor-page .book-list a {
+  text-decoration: none;
+  border: 0;
+}
+.contributor-list-role,
+.contributor-work-category {
+  color: var(--muted);
+  font: 13px/1.7 var(--sans);
+}
+.contributor-work-list a {
+  font: 18px/1.6 var(--serif);
+}
+@media (max-width: 760px) {
+  .contributors-name-list a { font-size: 19px; }
+  .contributor-work-list a { font-size: 17px; }
 }
