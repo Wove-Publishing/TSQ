@@ -3,6 +3,7 @@ title: Iceberg
 slug: iceberg
 contributor: traci-neal
 category: poetry
+publication_language: en
 publish_date: 2026-10-20
 featured_image_alt: Frederic Edwin Church, The Icebergs, 1861. Public domain. Dallas Museum of Art.
 featured: true

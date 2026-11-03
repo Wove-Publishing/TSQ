@@ -3,6 +3,7 @@ title: Paracosm
 slug: paracosm
 contributor: susanna-nguyen
 category: fiction
+publication_language: en
 publish_date: 2026-10-21
 featured: true
 draft: false

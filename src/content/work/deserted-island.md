@@ -3,6 +3,7 @@ title: Deserted Island
 slug: deserted-island
 contributor: traci-neal
 category: poetry
+publication_language: en
 publish_date: 2026-10-21
 excerpt: |+
   

@@ -3,6 +3,7 @@ title: North of the Last Light
 slug: north-of-the-last-light
 contributor: mikael-hakala
 category: poetry
+publication_language: en
 publish_date: 2026-10-05
 featured: true
 draft: false

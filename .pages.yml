@@ -143,7 +143,7 @@ content:
       - name: publication_language
         label: Published text language (if different)
         type: select
-        description: Only select if the main Work text is in a different language from the original.
+        description: Language of the main Work text when different from its original. Also use this to classify existing work whose publication language is known but original-language status is unconfirmed.
         options:
           values:
             - name: sv

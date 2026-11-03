@@ -29,7 +29,7 @@ export const languageGroups = [
   { id: 'greenlandic', label: 'Greenlandic', description: 'Literature originally written in Greenlandic (Kalaallisut).' },
   { id: 'sami', label: 'Sámi languages', description: 'Work in Northern, Lule, Southern, Inari, Skolt and other Sámi languages, each identified individually.' },
   { id: 'other', label: 'Other Nordic languages', description: 'Literature in Meänkieli, Kven and other languages of the Nordic region.' },
-  { id: 'english', label: 'English', description: 'Literature originally written in English by TSQ contributors.' },
+  { id: 'english', label: 'English', description: 'Writing available to read in English, including original work and translations.' },
 ] as const;
 
 export const languageFilters = [
@@ -42,4 +42,26 @@ export function getOriginalLanguage(id?: string, detail?: string) {
   const language = originalLanguages.find(item => item.id === id);
   if (!language) return null;
   return {...language, label: id === 'other' && detail?.trim() ? detail.trim() : language.label};
+}
+
+/**
+ * A language can be discovered through the language of the original text.
+ * English additionally lists work actually available to read in English,
+ * including translated main texts and optional English translations.
+ * Source language is never inferred from the writer's country.
+ */
+export function appearsInLanguageGroup(data: {
+  original_language?: string;
+  language_detail?: string;
+  publication_language?: string;
+  publication_language_detail?: string;
+  english_translation?: string;
+}, group: string) {
+  const original = getOriginalLanguage(data.original_language, data.language_detail);
+  if (original?.group === group) return true;
+  if (group === 'english') {
+    const published = getOriginalLanguage(data.publication_language, data.publication_language_detail);
+    return published?.group === 'english' || Boolean(data.english_translation?.trim());
+  }
+  return false;
 }

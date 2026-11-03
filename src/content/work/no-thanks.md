@@ -3,6 +3,7 @@ title: No thanks
 slug: no-thanks
 contributor: per-olvmyr
 category: fiction
+publication_language: en
 publish_date: 2026-10-21
 featured: true
 draft: false

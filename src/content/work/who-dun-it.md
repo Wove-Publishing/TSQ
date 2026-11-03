@@ -3,6 +3,7 @@ title: Who dun it?
 slug: who-dun-it
 contributor: shashank-mane
 category: poetry
+publication_language: en
 publish_date: 2026-10-16
 featured: true
 draft: false

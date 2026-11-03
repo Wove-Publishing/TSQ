@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { getOriginalLanguage, languageGroups } from '../../data/originalLanguages';
+import { appearsInLanguageGroup, languageGroups } from '../../data/originalLanguages';
 
 const entries = await getCollection('work', ({data})=>!data.draft);
 const groups = languageGroups.map(group=>({
   ...group,
-  count: entries.filter(entry=>getOriginalLanguage(entry.data.original_language,entry.data.language_detail)?.group===group.id).length
+  count: entries.filter(entry=>appearsInLanguageGroup(entry.data,group.id)).length
 }));
 ---
 <BaseLayout title="Languages" description="Discover literature in the original languages of the Nordic region, as well as English.">
@@ -17,7 +17,7 @@ const groups = languageGroups.map(group=>({
       <p class="standfirst">Literature across languages, read as it was written.</p>
     </header>
     <div class="wrap language-intro">
-      <p>Explore writing by the language in which it was originally composed. Open any language to browse poetry, fiction, essays, criticism and translation. A translation is welcome, never required.</p>
+      <p>Browse the original languages of Nordic writing, or explore work available to read in English, including translations. Open any language to find poetry, fiction, essays and criticism.</p>
     </div>
     <div class="wrap language-index-grid">
       {groups.map(group=><a class="language-index-card" href={`/languages/${group.id}/`}>

@@ -3,6 +3,7 @@ title: Solitude
 slug: solitude
 contributor: shashank-mane
 category: poetry
+publication_language: en
 publish_date: 2026-10-16
 excerpt: "(Published in the anthology “Opening Boundaries: Toward Finnish
   Heterolinational Literatures” (2019))"

@@ -2,13 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WorkCard from '../../components/WorkCard.astro';
 import { getCollection } from 'astro:content';
-import { getOriginalLanguage, languageGroups } from '../../data/originalLanguages';
+import { appearsInLanguageGroup, languageGroups } from '../../data/originalLanguages';
 
 export function getStaticPaths() {
   return languageGroups.map(group=>({params:{group:group.id},props:{group}}));
 }
 const {group}=Astro.props;
-const entries=(await getCollection('work',({data})=>!data.draft && getOriginalLanguage(data.original_language,data.language_detail)?.group===group.id))
+const entries=(await getCollection('work',({data})=>!data.draft && appearsInLanguageGroup(data,group.id)))
   .sort((a,b)=>b.data.publish_date.valueOf()-a.data.publish_date.valueOf());
 const genres=[
   {id:'all',label:'All writing'},{id:'poetry',label:'Poetry'},{id:'fiction',label:'Fiction'},
@@ -30,7 +30,7 @@ function classify(entry:(typeof entries)[number]) {
       <p class="standfirst">{group.description}</p>
     </header>
     <div class="wrap language-page-body">
-      <p class="language-page-note">Works are grouped by their original language. Where available, translations are credited with the work. An English translation is not required.</p>
+      <p class="language-page-note">{group.id === "english" ? "Work available to read in English, including original writing and translations. The original language is identified when known." : "Works are grouped by their original language. Translations, when available, are credited with the work. English translations are not required."}</p>
       <nav class="language-genres" aria-label={`Filter ${group.label} writing by genre`}>
         {genres.map(genre=><button class="language-genre-button" type="button" data-genre-filter={genre.id} aria-pressed={genre.id==='all'?'true':'false'}>{genre.label}</button>)}
       </nav>
