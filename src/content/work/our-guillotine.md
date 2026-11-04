@@ -4,11 +4,14 @@ slug: our-guillotine
 contributor: yuri-lobunov
 category: fiction
 publication_language: en
-publish_date: 2026-11-04
-featured: false
-draft: true
+publish_date: 2026-11-02
+featured: true
+draft: false
 previously_published: true
 compilation_eligible: false
+original_language: en
+is_translation: false
+first_publication_title: Milky Way, 21st Century
 ---
 Björn often recalled with horror the moment when a ridiculous suspicion gave way to a nightmarish realization – the first time he saw that soulless monster looming over civilization.
 
