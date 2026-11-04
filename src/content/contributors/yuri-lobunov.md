@@ -3,7 +3,7 @@ name: Yuri Lobunov
 slug: yuri-lobunov
 role: Writer
 location: Bryansk, Russia
-draft: true
+draft: false
 ---
 Yuri Lobunov trained as a physicist but turned to journalism, working for European and Asian media while remaining based in Bryansk, Russia, where he has lived throughout his life. His professional experience also includes working with GSA, a Washington-based consulting firm. He attended educational seminars organized by the Stockholm School of Economics in Riga and Stockholm and participated in various programmes of the Council of Europe, including the World Forum for Democracy, which he attended on several occasions.
 
