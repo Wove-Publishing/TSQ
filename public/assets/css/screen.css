@@ -2213,7 +2213,7 @@ html.dark-mode .kg-bookmark-description {
 }
 
 
-/* Editorial reading actions: a clear blue label, never an arrow link. */
+/* Editorial reading actions: Nordic flag red, white text, no arrows. */
 .read-button,
 .gh-content .read-button,
 .work-card .read-button,
@@ -2222,7 +2222,7 @@ html.dark-mode .kg-bookmark-description {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  background: #205b86;
+  background: #c8102e;
   color: #fff;
   border: 0;
   padding: 10px 17px;
@@ -2236,7 +2236,7 @@ html.dark-mode .kg-bookmark-description {
 .gh-content .read-button:hover,
 .work-card .read-button:hover,
 .gh-content .work-card .read-button:hover {
-  background: #154263;
+  background: #a20d25;
   color: #fff;
   text-decoration: none;
 }
