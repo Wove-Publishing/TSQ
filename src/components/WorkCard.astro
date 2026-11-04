@@ -14,5 +14,5 @@ const categoryLabels: Record<string,string> = { poetry:'Poetry', fiction:'Fictio
   <h3><a href={`/work/${entry.id}/`}>{d.title}</a></h3>
   <p class="work-byline"><a href={`/contributors/${d.contributor}/`}>{authorName}</a></p>
   {d.excerpt && <p>{d.excerpt}</p>}
-  <a class="read-link" href={`/work/${entry.id}/`}>Read <span aria-hidden="true">↗</span></a>
+  <a class="read-button" href={`/work/${entry.id}/`}>READ</a>
 </article>

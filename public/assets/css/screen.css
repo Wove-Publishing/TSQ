@@ -2211,3 +2211,35 @@ html.dark-mode .kg-bookmark-description {
   .contributors-name-list a { font-size: 19px; }
   .contributor-work-list a { font-size: 17px; }
 }
+
+
+/* Editorial reading actions: a clear blue label, never an arrow link. */
+.read-button,
+.gh-content .read-button,
+.work-card .read-button,
+.gh-content .work-card .read-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background: #205b86;
+  color: #fff;
+  border: 0;
+  padding: 10px 17px;
+  margin-top: 8px;
+  font: 600 12px/1.3 var(--sans);
+  letter-spacing: .05em;
+  text-decoration: none;
+  text-underline-offset: initial;
+}
+.read-button:hover,
+.gh-content .read-button:hover,
+.work-card .read-button:hover,
+.gh-content .work-card .read-button:hover {
+  background: #154263;
+  color: #fff;
+  text-decoration: none;
+}
+@media print {
+  .read-button { display: none; }
+}
