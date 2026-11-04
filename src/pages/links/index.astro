@@ -1,0 +1,89 @@
+---
+const links = [
+  { label: 'Latest writing', href: '/latest/' },
+  { label: 'Explore Nordic languages', href: '/languages/' },
+  { label: 'Poetry', href: '/writing/poetry/' },
+  { label: 'Fiction', href: '/writing/fiction/' },
+  { label: 'Spring 2027 issue', href: '/issues/spring-2027/' },
+  { label: 'Contributors', href: '/contributors/' },
+  { label: 'Submit your work', href: '/submit/' },
+  { label: 'Support TSQ', href: '/donate/' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Links · The Scandinavian Quarterly</title>
+    <meta name="description" content="Read, explore and connect with The Scandinavian Quarterly, a magazine of Nordic literature and culture." />
+    <meta property="og:title" content="The Scandinavian Quarterly · Links" />
+    <meta property="og:description" content="A Magazine of Nordic Literature and Culture" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/assets/images/tsq-icon.png" />
+    <link rel="stylesheet" href="/assets/css/screen.css" />
+  </head>
+  <body class="tsq-links">
+    <main class="links-shell">
+      <header class="links-heading">
+        <a href="/" aria-label="The Scandinavian Quarterly homepage">
+          <img src="/assets/images/tsq-wordmark.svg" alt="The Scandinavian Quarterly" />
+        </a>
+        <h1>A Magazine of Nordic Literature and Culture</h1>
+        <p>Writing and art from the Nordic region and beyond.</p>
+      </header>
+      <nav class="links-list" aria-label="Explore The Scandinavian Quarterly">
+        {links.map(({label,href}) => (
+          <a href={href} class="links-item">
+            <span>{label}</span><span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </nav>
+      <footer class="links-footer">The Scandinavian Quarterly</footer>
+    </main>
+  </body>
+</html>
+<style>
+  :global(body.tsq-links) { min-height: 100svh; }
+  .links-shell {
+    width: min(100% - 40px, 520px);
+    margin: 0 auto;
+    padding: clamp(48px, 9vh, 90px) 0 45px;
+  }
+  .links-heading { text-align: center; margin-bottom: 34px; }
+  .links-heading a { display: block; width: min(100%, 380px); margin: 0 auto 25px; }
+  .links-heading img { display: block; width: 100%; height: auto; }
+  .links-heading h1 {
+    font: 400 clamp(19px, 4.5vw, 24px)/1.45 var(--serif);
+    letter-spacing: -0.025em;
+    margin: 0 0 11px;
+  }
+  .links-heading p { font: 13px/1.6 var(--sans); color: var(--muted); margin: 0; }
+  .links-list { display: grid; gap: 10px; }
+  .links-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 54px;
+    padding: 14px 19px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 500 14px/1.45 var(--sans);
+    text-decoration: none;
+  }
+  .links-item:hover { background: var(--ink); color: var(--paper); }
+  .links-item span:last-child { font-size: 15px; font-weight: 400; }
+  .links-footer {
+    margin-top: 35px;
+    text-align: center;
+    font: 11px/1.6 var(--sans);
+    color: var(--muted);
+  }
+  @media (max-width: 420px) {
+    .links-shell { width: calc(100% - 32px); padding-top: 40px; }
+    .links-heading a { width: min(100%, 305px); }
+    .links-item { min-height: 52px; }
+  }
+</style>
