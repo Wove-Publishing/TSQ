@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { events } from './content/events.schema';
 
 const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
@@ -78,4 +79,4 @@ const issues = defineCollection({
   })
 });
 
-export const collections = { work, contributors, issues };
+export const collections = { work, contributors, issues, events };

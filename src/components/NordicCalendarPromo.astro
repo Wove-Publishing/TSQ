@@ -1,0 +1,16 @@
+<section class="calendar-promo" aria-labelledby="calendar-promo-title">
+  <div>
+    <p class="eyebrow">What's on</p>
+    <h2 id="calendar-promo-title">The Nordic Calendar</h2>
+    <p>Literary gatherings, exhibitions and cultural traditions across the Nordic region.</p>
+  </div>
+  <a class="read-button" href="/whats-on/">WHAT'S ON</a>
+</section>
+<style>
+  .calendar-promo { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 56px 0; padding: 30px; background: var(--surface); }
+  .calendar-promo h2 { font-size: clamp(27px, 3vw, 35px); margin-bottom: 12px; }
+  .calendar-promo p { max-width: 650px; margin-bottom: 0; font-size: 15px; }
+  .calendar-promo .eyebrow { margin-bottom: 12px; font-size: 11px; }
+  .calendar-promo .read-button { flex-shrink: 0; }
+  @media (max-width: 600px) { .calendar-promo { align-items: start; flex-direction: column; padding: 24px; } }
+</style>

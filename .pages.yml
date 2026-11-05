@@ -311,6 +311,8 @@ content:
       primary: name
       sort:
         - name
+        - role
+        - location
       search:
         - name
         - role
@@ -498,3 +500,123 @@ content:
         options:
           format: markdown
           switcher: true
+
+  - name: events
+    label: Events / Nordic Calendar
+    type: collection
+    path: src/content/events
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{slug}.md"
+      field: false
+    view:
+      fields: [title, category, country, start_date, end_date, draft]
+      primary: title
+      sort: [start_date, end_date, title]
+      search: [title, city, venue, country]
+      default:
+        sort: start_date
+        order: asc
+    fields:
+      - name: title
+        label: Event name
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Unique lowercase words with hyphens, including the year, e.g. bokadagar-2026.
+        pattern: "^[a-z0-9-]+$"
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - name: literature
+              label: Literature
+            - name: arts
+              label: Arts
+            - name: cultural-traditions
+              label: Cultural Traditions
+      - name: country
+        label: Country / region
+        type: select
+        required: true
+        options:
+          values:
+            - name: sweden
+              label: Sweden
+            - name: norway
+              label: Norway
+            - name: denmark
+              label: Denmark
+            - name: finland
+              label: Finland
+            - name: iceland
+              label: Iceland
+            - name: faroe-islands
+              label: Faroe Islands
+            - name: greenland
+              label: Greenland
+            - name: aland
+              label: Åland
+            - name: nordic-region
+              label: Across the Nordic region
+      - name: city
+        label: City / town
+        type: string
+        required: true
+      - name: venue
+        label: Venue
+        type: string
+      - name: start_date
+        label: Start date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: end_date
+        label: End date
+        type: date
+        required: true
+        description: Use the start date again for a one-day event. Finished events disappear automatically.
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: Short description
+        type: text
+        required: true
+        description: Brief original editorial description, maximum 600 characters. No copied promotional paragraphs.
+      - name: schedule_note
+        label: Opening days / booking note
+        type: string
+        description: Specify weekends-only dates, exhibition closures or required booking. Do not imply a date range means open every day.
+      - name: official_url
+        label: Official event page
+        type: string
+        required: true
+        description: Full https link to the organiser, museum or official venue. Check the correct year and dates.
+      - name: last_verified
+        label: Last verified (internal)
+        type: date
+        required: true
+        description: Date you last checked the official event details. Not displayed on the public listing.
+        options:
+          format: yyyy-MM-dd
+      - name: draft
+        label: Draft
+        type: boolean
+        default: true
+        description: Keep on until the event and dates have been verified. Turn off to publish.
+      - name: cancelled
+        label: Cancelled / hidden
+        type: boolean
+        default: false
+        description: Turn on to remove a cancelled event from the public calendar immediately after deployment.
+      - name: body
+        label: Editorial notes (internal)
+        type: text
+        description: Optional source notes and checks. Not displayed on the website.

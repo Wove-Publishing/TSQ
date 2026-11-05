@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { eventCategories, eventCountries, monthOptions, filterCalendar, displayDate } from '../../lib/nordic-calendar';
+
+// Request-time rendering keeps finished events out without waiting for a new build.
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'no-store');
+const now = new Date();
+const months = monthOptions(now);
+const params = Astro.url.searchParams;
+const requestedMonth = params.get('month');
+const month = requestedMonth === 'all' || months.some(option => option.value === requestedMonth) ? requestedMonth! : months[0].value;
+const requestedCountry = params.get('country');
+const country = eventCountries.some(option => option.id === requestedCountry) ? requestedCountry! : 'all';
+const requestedCategory = params.get('category');
+const category = eventCategories.some(option => option.id === requestedCategory) ? requestedCategory! : 'all';
+const entries = filterCalendar(await getCollection('events'), { month, country, category }, now);
+const heading = month === 'all' ? 'Upcoming events' : months.find(option => option.value === month)!.label;
+---
+<BaseLayout title="The Nordic Calendar" description="Literature, arts and cultural traditions across the Nordic region. Browse TSQ's selected events by month, country and category.">
+  <article class="standard-page nordic-calendar">
+    <header class="page-heading wrap">
+      <p class="eyebrow">What's on</p>
+      <h1>The Nordic Calendar</h1>
+      <p class="standfirst">Literature, arts and cultural traditions across the Nordic region.</p>
+    </header>
+    <div class="calendar-body wrap">
+      <form class="calendar-filters" action="/whats-on/" method="get" aria-label="Filter cultural events">
+        <div><label for="calendar-month">Month</label><select id="calendar-month" name="month">
+          {months.map(option => <option value={option.value} selected={month === option.value}>{option.label}</option>)}
+          <option value="all" selected={month === 'all'}>All upcoming</option>
+        </select></div>
+        <div><label for="calendar-country">Country / region</label><select id="calendar-country" name="country">
+          <option value="all" selected={country === 'all'}>All countries &amp; regions</option>
+          {eventCountries.map(option => <option value={option.id} selected={country === option.id}>{option.label}</option>)}
+        </select></div>
+        <div><label for="calendar-category">Category</label><select id="calendar-category" name="category">
+          <option value="all" selected={category === 'all'}>All categories</option>
+          {eventCategories.map(option => <option value={option.id} selected={category === option.id}>{option.label}</option>)}
+        </select></div>
+        <button class="calendar-button" type="submit">FILTER</button>
+        <a class="calendar-reset" href="/whats-on/">Reset</a>
+      </form>
+      <div class="calendar-results-heading">
+        <h2>{heading}</h2>
+        <p role="status">{entries.length} {entries.length === 1 ? 'event' : 'events'}</p>
+      </div>
+      {entries.length ? <ol class="calendar-events">
+        {entries.map(({id, data}) => <li id={id} class="calendar-event">
+          <div class="event-dates">
+            <time datetime={data.start_date}>{displayDate(data.start_date)}</time>
+            {data.end_date !== data.start_date && <><span class="date-to">to</span><time datetime={data.end_date}>{displayDate(data.end_date)}</time></>}
+          </div>
+          <div class="event-copy">
+            <p class="eyebrow">{eventCategories.find(option => option.id === data.category)?.label}</p>
+            <h3>{data.title}</h3>
+            <p class="event-place">{data.city} · {eventCountries.find(option => option.id === data.country)?.label}{data.venue && <> · {data.venue}</>}</p>
+            <p class="event-summary">{data.summary}</p>
+            {data.schedule_note && <p class="event-schedule">{data.schedule_note}</p>}
+            <a class="read-button event-details" href={data.official_url} aria-label={`Official event details: ${data.title}`}>DETAILS</a>
+          </div>
+        </li>)}
+      </ol> : <div class="calendar-empty"><p>No upcoming events match this selection.</p><p>Try another month, country or category. We only list events whose dates we can verify.</p></div>}
+      <aside class="calendar-notes">
+        <p>This is a selection, not a complete directory. Dates are local to each event. Check the organiser's page for opening days, booking requirements and any changes before travelling.</p>
+        <p>Organising a literary, arts or cultural-tradition event? <a href="/contact/">Send us its name, dates, location and official link</a> for editorial consideration.</p>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .nordic-calendar .standfirst { margin-inline: auto; }
+  .calendar-body { max-width: 1060px; }
+  .calendar-filters { display: flex; flex-wrap: wrap; align-items: end; gap: 18px; margin: 8px 0 50px; }
+  .calendar-filters > div { flex: 1 1 180px; min-width: 0; }
+  .calendar-filters label { display: block; font: 500 12px/1.4 var(--sans); margin-bottom: 8px; }
+  .calendar-filters select { width: 100%; min-height: 44px; padding: 10px 30px 10px 12px; background: var(--surface); color: var(--ink); border: 0; border-radius: 0; font: 14px/1.5 var(--sans); }
+  .calendar-filters .calendar-button { min-height: 44px; padding: 10px 20px; background: #c8102e; color: #fff; border: 0; border-radius: 0; font: 600 12px/1.5 var(--sans); letter-spacing: .05em; }
+  .calendar-filters .calendar-button:hover { background: #a20d25; }
+  .calendar-reset { padding-block: 11px; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+  .calendar-results-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 36px; }
+  .calendar-results-heading h2 { margin: 0; font-size: clamp(25px, 3vw, 34px); }
+  .calendar-results-heading p { margin: 0; font: 13px/1.5 var(--sans); color: var(--muted); }
+  .calendar-events { list-style: none; margin: 0; padding: 0; }
+  .calendar-event { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 36px; margin: 0 0 52px; padding: 0; border: 0; }
+  .event-dates { font: 15px/1.6 var(--serif); padding-top: 2px; color: var(--ink); }
+  .event-dates time, .date-to { display: block; }
+  .date-to { color: var(--muted); font: 12px/1.8 var(--sans); }
+  .event-copy { min-width: 0; }
+  .event-copy .eyebrow { margin-bottom: 8px; }
+  .event-copy h3 { margin-bottom: 10px; font-size: clamp(23px, 2.5vw, 29px); }
+  .event-place { color: var(--muted); font: 13px/1.6 var(--sans); margin-bottom: 13px; }
+  .event-summary { font: 16px/1.8 var(--serif); max-width: 740px; margin-bottom: 12px; }
+  .event-schedule { font: 13px/1.6 var(--sans); color: var(--muted); margin-bottom: 10px; }
+  .event-details { min-height: 42px; text-decoration: none; }
+  .calendar-empty { padding: 16px 0 50px; font: 16px/1.8 var(--serif); }
+  .calendar-notes { margin-top: 56px; max-width: 760px; font: 13px/1.8 var(--sans); color: var(--muted); }
+  .calendar-notes a { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 600px) {
+    .calendar-filters { gap: 14px; margin-bottom: 36px; }
+    .calendar-filters > div { flex-basis: 100%; }
+    .calendar-event { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 42px; }
+    .event-dates { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; font-size: 14px; }
+    .event-summary { font-size: 15px; }
+  }
+</style>
