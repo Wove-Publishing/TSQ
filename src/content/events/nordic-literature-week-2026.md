@@ -10,7 +10,7 @@ end_date: "2026-11-15"
 summary: A shared week of Nordic reading and storytelling, with read-aloud gatherings for adults, children and young people. The organisers' directory helps readers find participating institutions.
 schedule_note: Local programmes and times vary. Check the participating institution before attending.
 official_url: https://www.nordisklitteratur.org/se/
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---

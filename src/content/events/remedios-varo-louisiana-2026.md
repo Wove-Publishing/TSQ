@@ -10,7 +10,7 @@ end_date: "2027-01-10"
 summary: A survey of Remedios Varo's paintings, drawings and notebooks, tracing the surrealist artist's imaginative worlds and her work in Europe and Mexico.
 schedule_note: Exhibition date range; check museum opening days before visiting.
 official_url: https://louisiana.dk/en/exhibition/remedios-varo/
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---

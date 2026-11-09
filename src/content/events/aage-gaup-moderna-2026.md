@@ -10,7 +10,7 @@ end_date: "2027-01-24"
 summary: Sculptures, installations and models by Sámi artist Aage Gaup, bringing together his sculptural practice and work for public spaces and the stage.
 schedule_note: Exhibition date range; check museum opening days before visiting.
 official_url: https://www.modernamuseet.se/en/stockholm/exhibitions/aage-gaup/
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---

@@ -10,7 +10,7 @@ end_date: "2026-12-20"
 summary: A traditional Christmas market with locally made crafts, seasonal food and handmade gifts in Skansen's historic setting.
 schedule_note: Fridays–Sundays only, 27 November–20 December. Not open as a market every day in this date range.
 official_url: https://www.skansen.se/en/see-and-do/holidays-and-traditions/christmas-market/
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---

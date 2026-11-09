@@ -10,7 +10,7 @@ end_date: "2026-11-15"
 summary: Finland's craft and design fair celebrates its thirtieth year with a focus on traditional skills, makers and the continuation of Finnish handicraft traditions.
 schedule_note: Check the organiser's programme for workshop bookings and daily opening hours.
 official_url: https://kadentaidot.fi/fi
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---

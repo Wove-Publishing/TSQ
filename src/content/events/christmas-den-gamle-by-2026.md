@@ -10,7 +10,7 @@ end_date: "2026-12-31"
 summary: Explore changing Danish Christmas customs through decorated historic homes, seasonal food and encounters with the museum's interpreters. The programme follows celebrations across four centuries.
 schedule_note: Check the museum's daily programme and opening hours before visiting.
 official_url: https://www.dengamleby.dk/planlaeg-besog/program/jul-i-den-gamle-by/
-last_verified: "2026-11-05"
+last_verified: "2026-11-09"
 draft: false
 cancelled: false
 ---
