@@ -16,6 +16,8 @@ compilation_eligible: true
 issue: spring-2027
 publication_language: nn
 ---
+*[Read the original](https://www.thescandinavianquarterly.com/work/et-sted-pa-jorden/)* 
+
 It is hardly a coincidence that the word «weed» crops up time and again in Theis Ørntoft’s novel *Habitat* (2025). The Danish author has written a wild and strong-willed work of autofiction, one that pushes relentlessly through every obstacle in its path. Like a dandelion, the novel strains toward the light, even (or should I say *especially*) when everything seems dark and hopeless.
 
 The first-person narrator, Theis, who by all appearances is identical to the author himself, struggles not only with writer’s block and crippling anxiety attacks. He has also become the unhappy owner of a dilapidated, overgrown holiday house on the Danish island of Møn. Having bought the house in hopes of finding the peace and concentration needed to write, he finds himself constantly distracted by the natural world pressing in from beyond its four walls.
@@ -80,8 +82,6 @@ It has never, of course, been literature’s task to fix the world or to place t
 An ecosystem is, by definition, circular. For that reason, it is tempting to let this essay bite its own tail by returning to the metaphor with which it began. *Habitat* is an untamed and tenacious novel, stretching toward the light whatever the cost. By the end of the novel, it even seems possible that Theis succeeds in finding a place of refuge. In this sense, the novel ultimately fulfils the promise implied by its title: if a habitat exists, then hope exists as well.
 
 
-
-The O
 
 ---
 
