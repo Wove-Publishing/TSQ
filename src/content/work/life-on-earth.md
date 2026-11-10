@@ -3,7 +3,7 @@ title: Life on Earth
 slug: life-on-earth
 contributor: kristoffer-kjelling
 category: translation
-original_language: en
+original_language: nn
 is_translation: true
 publish_date: 2026-11-09
 excerpt: In his latest novel, Theis Ørntoft explores the intertwined realities
@@ -14,7 +14,7 @@ draft: false
 previously_published: false
 compilation_eligible: true
 issue: spring-2027
-publication_language: nn
+publication_language: en
 ---
 *[Read the original](https://www.thescandinavianquarterly.com/work/et-sted-pa-jorden/)* 
 
