@@ -12,7 +12,7 @@ excerpt: " Theis Ørntofts nye roman er et nærstudium av et personlig og
 featured_image: /assets/images/image-14.jpeg
 featured_image_alt: Romanen Habitat av Theis Ørntoft. Danmark, 2025.
 featured: true
-draft: true
+draft: false
 previously_published: true
 first_publication_title: Salongen
 first_publication_url: https://www.salongen.no/anmeldelse/et-sted-pa-jorden/264814
