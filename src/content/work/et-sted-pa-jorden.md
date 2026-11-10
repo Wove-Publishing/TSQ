@@ -1,12 +1,12 @@
 ---
 title: Et Sted På Jorden
 slug: et-sted-pa-jorden
-contributor: elham-hosseini
+contributor: kristoffer-kjelling
 category: criticism
 original_language: nn
 publication_language: nn
 is_translation: false
-publish_date: 2026-11-10
+publish_date: 2026-04-27
 excerpt: " Theis Ørntofts nye roman er et nærstudium av et personlig og
   økologisk sammenbrudd. Er det mulig å reparere et ødelagt habitat?"
 featured_image: /assets/images/image-14.jpeg
