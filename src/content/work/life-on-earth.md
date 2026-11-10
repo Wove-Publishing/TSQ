@@ -3,7 +3,7 @@ title: Life on Earth
 slug: life-on-earth
 contributor: kristoffer-kjelling
 category: translation
-original_language: nn
+original_language: en
 is_translation: true
 publish_date: 2026-11-09
 excerpt: In his latest novel, Theis Ørntoft explores the intertwined realities
@@ -14,6 +14,7 @@ draft: false
 previously_published: false
 compilation_eligible: true
 issue: spring-2027
+publication_language: nn
 ---
 It is hardly a coincidence that the word «weed» crops up time and again in Theis Ørntoft’s novel *Habitat* (2025). The Danish author has written a wild and strong-willed work of autofiction, one that pushes relentlessly through every obstacle in its path. Like a dandelion, the novel strains toward the light, even (or should I say *especially*) when everything seems dark and hopeless.
 
