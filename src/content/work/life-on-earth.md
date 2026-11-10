@@ -78,10 +78,9 @@ It has never, of course, been literature’s task to fix the world or to place t
 
 An ecosystem is, by definition, circular. For that reason, it is tempting to let this essay bite its own tail by returning to the metaphor with which it began. *Habitat* is an untamed and tenacious novel, stretching toward the light whatever the cost. By the end of the novel, it even seems possible that Theis succeeds in finding a place of refuge. In this sense, the novel ultimately fulfils the promise implied by its title: if a habitat exists, then hope exists as well.
 
- 
 
-  
 
+The O
 
 ---
 
