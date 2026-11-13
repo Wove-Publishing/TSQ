@@ -6,10 +6,9 @@ category: poetry
 original_language: en
 publication_language: en
 is_translation: false
-# Provisional date for CMS; confirm actual Spring 2027 publication date before publishing.
-publish_date: 2027-04-01
+publish_date: 2026-11-13
 featured: false
-draft: true
+draft: false
 previously_published: false
 compilation_eligible: true
 nordic_eligibility_exception: true
