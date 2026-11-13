@@ -272,6 +272,17 @@ content:
         default: true
         description: Turn this OFF for previously published work. Reprints may appear online but not in TSQ issue compilations.
 
+      - name: nordic_eligibility_exception
+        label: Editor-approved Nordic eligibility exception
+        type: boolean
+        default: false
+        description: Internal editorial exception for work whose author neither lives in the Nordic region nor writes substantively about it. Use only when explicitly approved by an editor.
+
+      - name: eligibility_exception_note
+        label: Eligibility exception decision (internal)
+        type: text
+        description: Record who approved the exception, when, and its scope. This note is not displayed on the public website.
+
       - name: issue
         label: Issue / seasonal compilation
         type: reference

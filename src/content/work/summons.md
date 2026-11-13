@@ -12,6 +12,8 @@ featured: false
 draft: true
 previously_published: false
 compilation_eligible: true
+nordic_eligibility_exception: true
+eligibility_exception_note: "Approved by TSQ publisher on 13 November 2026 specifically for the Spring 2027 issue, notwithstanding the usual Nordic residence or subject requirement."
 issue: spring-2027
 ---
 Should I ever tell you  

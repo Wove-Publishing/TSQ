@@ -36,6 +36,8 @@ const work = defineCollection({
       z.string().optional()
     ),
     compilation_eligible: z.boolean().default(true),
+    nordic_eligibility_exception: z.boolean().default(false),
+    eligibility_exception_note: z.string().optional(),
     issue: z.string().optional()
   })
 });
