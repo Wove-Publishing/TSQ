@@ -8,10 +8,11 @@ venue: Moderna Museet
 start_date: "2026-11-07"
 end_date: "2027-01-24"
 summary: Sculptures, installations and models by Sámi artist Aage Gaup, bringing together his sculptural practice and work for public spaces and the stage.
-schedule_note: Exhibition date range; check museum opening days before visiting.
+schedule_note: "Moderna Museet Stockholm is closed Mondays and 24–25 and 31 December 2026 and 1 January 2027. Check holiday changes."
 official_url: https://www.modernamuseet.se/en/stockholm/exhibitions/aage-gaup/
-last_verified: "2026-11-09"
+last_verified: 2026-11-16
 draft: false
 cancelled: false
 ---
 Dates also confirmed by the museum's press page: https://www.modernamuseet.se/en/press-material/aage-gaup/ (7 November 2026 to 24 January 2027).
+Official source rechecked 2026-11-16: https://www.modernamuseet.se/en/stockholm/visit-the-museum/
