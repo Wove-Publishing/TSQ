@@ -10,9 +10,11 @@ end_date: "2027-02-06"
 summary: "Jokkmokk's long established winter market brings Sámi duodji, traditional craft and local knowledge together in northern Sweden. This listing focuses on the market's cultural heritage and makers."
 schedule_note: "Market Thursday to Saturday, 10:00–18:00. Detailed 2027 cultural sessions are not yet confirmed; check the organiser before planning attendance."
 official_url: "https://www.jokkmokksmarknad.se/en/"
-last_verified: 2026-11-16
+last_verified: 2026-11-23
 draft: false
 cancelled: false
 ---
 Official organiser source checked on 9 November 2026: https://www.jokkmokksmarknad.se/en/
 Official source rechecked 2026-11-16: https://www.jokkmokksmarknad.se/en/
+
+Official organiser checked 2026-11-23: https://www.jokkmokksmarknad.se/en/ . Confirms 4–6 February 2027, market 10:00–18:00. The detailed 2027 market programme is expected in December and not yet published.
