@@ -8,7 +8,7 @@ website: http://www.dariusdegher.com/
 books:
   - title: To See the Sound
     year: "2015"
-draft: true
+draft: false
 ---
 Darius is a poet, singer-songwriter, and musician from California. He also lived in Sweden for a dozen years and taught at Malmö University (and online) for twenty years, starting their creative writing program and founding the now-defunct *Shipwrights Review*. His poetry has appeared in many American and British literary magazines, including *Measure*, *Agenda*, *Equinox*, and *The Red Wheelbarrow*, among others. His collection *To See the Sound* was published in 2015, and another has just been completed. He has degrees from UCLA (BA, English) and Lancaster University, England (MA, creative writing).
 

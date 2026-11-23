@@ -50,11 +50,10 @@ english_translation: |
   We only have today.
   We’ve only ever had today.
 translator: Darius Degher
-# Provisional CMS date only; replace with the actual date when published.
-publish_date: 2027-04-01
+publish_date: 2026-11-23
 excerpt: A Swedish poem written for the poet's father-in-law, with an English translation by the author.
 featured: false
-draft: true
+draft: false
 previously_published: false
 compilation_eligible: true
 nordic_eligibility_exception: true
