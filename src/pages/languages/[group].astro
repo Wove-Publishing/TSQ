@@ -39,9 +39,9 @@ function classify(entry:(typeof entries)[number]) {
         {entries.map(entry=><div class="language-work-item" data-genre-list={classify(entry)}><WorkCard entry={entry}/></div>)}
       </div>
       <div class="empty-state" data-genre-empty hidden={entries.length>0}>
-        <p>There is no published work in this selection yet.</p><p><a href="/submission-guidelines/">Submit work in {group.label} →</a></p>
+        <p>There is no published work in this selection yet.</p><p><a href="/submission-guidelines/">Submit work in {group.label} </a></p>
       </div>
-      <p class="language-back"><a href="/languages/">← All languages</a></p>
+      <p class="language-back"><a href="/languages/">All languages</a></p>
     </div>
   </article>
 </BaseLayout>

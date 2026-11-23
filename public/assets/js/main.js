@@ -65,7 +65,7 @@
         supportTab.className = 'support-tab';
         supportTab.href = '/donate/';
         supportTab.setAttribute('aria-label', 'Support The Scandinavian Quarterly');
-        supportTab.textContent = 'Support TSQ →';
+        supportTab.textContent = 'Support TSQ ';
         document.body.append(supportTab);
     }
 

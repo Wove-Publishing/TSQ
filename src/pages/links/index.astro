@@ -37,7 +37,7 @@ const links = [
       <nav class="links-list" aria-label="Explore The Scandinavian Quarterly">
         {links.map(({label,href}) => (
           <a href={href} class="links-item">
-            <span>{label}</span><span aria-hidden="true">↗</span>
+            <span>{label}</span>
           </a>
         ))}
       </nav>
@@ -75,7 +75,6 @@ const links = [
     text-decoration: none;
   }
   .links-item:hover { background: var(--ink); color: var(--paper); }
-  .links-item span:last-child { font-size: 15px; font-weight: 400; }
   .links-footer {
     margin-top: 35px;
     text-align: center;

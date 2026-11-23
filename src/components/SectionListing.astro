@@ -9,6 +9,6 @@ const entries = all.sort((a,b) => b.data.publish_date.valueOf() - a.data.publish
   <header class="page-heading wrap"><p class="eyebrow">{eyebrow}</p><h1>{title}</h1>{standfirst && <p class="standfirst">{standfirst}</p>}</header>
   <div class="gh-content">
     {intro && <p>{intro}</p>}
-    {entries.length ? <div class="story-grid">{entries.map(entry => <WorkCard entry={entry} />)}</div> : <div class="empty-state"><p>No published work in this section yet.</p><p><a href={submitHref}>Submit to this section →</a></p></div>}
+    {entries.length ? <div class="story-grid">{entries.map(entry => <WorkCard entry={entry} />)}</div> : <div class="empty-state"><p>No published work in this section yet.</p><p><a href={submitHref}>Submit to this section </a></p></div>}
   </div>
 </article>

@@ -23,11 +23,11 @@ const active = (href: string) => pathname.replace(/\/+$/, '') === href.replace(/
   <nav class="primary-nav" aria-label="Main navigation">
     <details class="mobile-nav"><summary>Menu <span aria-hidden="true">+</span></summary><ul class="nav-list">
       <li><a href="/latest/" aria-current={active('/latest/') ? 'page' : undefined}>LATEST</a></li>
-      <li><details class="writing-menu languages-menu"><summary>LANGUAGES <span aria-hidden="true">⌄</span></summary><ul>
+      <li><details class="writing-menu languages-menu"><summary>LANGUAGES</summary><ul>
         <li><a href="/languages/">All languages</a></li>
         {languageGroups.map(group => <li><a href={`/languages/${group.id}/`} aria-current={active(`/languages/${group.id}/`) ? 'page' : undefined}>{group.label}</a></li>)}
       </ul></details></li>
-      <li><details class="writing-menu"><summary>WRITING <span aria-hidden="true">⌄</span></summary><ul>
+      <li><details class="writing-menu"><summary>WRITING</summary><ul>
         <li><a href="/writing/poetry/">Poetry</a></li>
         <li><a href="/writing/fiction/">Fiction</a></li>
         <li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li>
@@ -42,11 +42,11 @@ const active = (href: string) => pathname.replace(/\/+$/, '') === href.replace(/
     </ul></details>
     <div class="desktop-nav"><ul class="nav-list">
       <li><a href="/latest/" aria-current={active('/latest/') ? 'page' : undefined}>LATEST</a></li>
-      <li><details class="writing-menu languages-menu"><summary>LANGUAGES <span aria-hidden="true">⌄</span></summary><ul>
+      <li><details class="writing-menu languages-menu"><summary>LANGUAGES</summary><ul>
         <li><a href="/languages/">All languages</a></li>
         {languageGroups.map(group => <li><a href={`/languages/${group.id}/`} aria-current={active(`/languages/${group.id}/`) ? 'page' : undefined}>{group.label}</a></li>)}
       </ul></details></li>
-      <li><details class="writing-menu"><summary>WRITING <span aria-hidden="true">⌄</span></summary><ul>
+      <li><details class="writing-menu"><summary>WRITING</summary><ul>
         <li><a href="/writing/poetry/">Poetry</a></li>
         <li><a href="/writing/fiction/">Fiction</a></li>
         <li><a href="/writing/essays-criticism/">Essays &amp; Criticism</a></li>

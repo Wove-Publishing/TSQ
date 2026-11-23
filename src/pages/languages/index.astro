@@ -22,7 +22,7 @@ const groups = languageGroups.map(group=>({
     <div class="wrap language-index-grid">
       {groups.map(group=><a class="language-index-card" href={`/languages/${group.id}/`}>
         <span class="eyebrow">{group.count} {group.count===1?'work':'works'}</span>
-        <h2>{group.label}</h2><p>{group.description}</p><span class="language-more">Explore writing ↗</span>
+        <h2>{group.label}</h2><p>{group.description}</p><span class="language-more">Explore writing </span>
       </a>)}
     </div>
     <div class="wrap language-outro">
