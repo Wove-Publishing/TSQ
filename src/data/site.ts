@@ -4,5 +4,6 @@ export const site = {
   description: 'An independent online magazine of Nordic literature and culture, free to read.',
   url: 'https://www.thescandinavianquarterly.com',
   submissionsEmail: 'submissions@thescandinavianquarterly.com',
-  established: '2026'
+  established: '2026',
+  issn: '3119-4303'
 };

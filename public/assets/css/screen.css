@@ -2243,3 +2243,12 @@ html.dark-mode .kg-bookmark-description {
 @media print {
   .read-button { display: none; }
 }
+
+/* Publisher and ISSN credit in the site footer. */
+.footer-publisher {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
