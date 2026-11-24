@@ -10,10 +10,20 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.wovepublishing.tsq"
+      "package": "com.wovepublishing.tsq",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#f7f5ee"
+      }
     },
     "extra": {
       "feedUrl": "https://www.thescandinavianquarterly.com/api/mobile.json"
+    },
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f7f5ee"
     }
   }
 }
