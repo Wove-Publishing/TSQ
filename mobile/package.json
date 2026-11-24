@@ -6,7 +6,9 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios"
+    "ios": "expo start --ios",
+    "postinstall": "node scripts/prepare-assets.mjs",
+    "prepare:assets": "node scripts/prepare-assets.mjs"
   },
   "dependencies": {
     "expo": "~54.0.0",
@@ -15,5 +17,8 @@
     "@react-native-async-storage/async-storage": "2.2.0",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-markdown-display": "^7.0.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }
