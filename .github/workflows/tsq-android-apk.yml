@@ -1,0 +1,84 @@
+name: Build TSQ Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'mobile/**'
+      - 'public/assets/images/tsq-icon.png'
+      - '.github/workflows/tsq-android-apk.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    name: Build standalone Android testing APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI: 'true'
+      EXPO_NO_TELEMETRY: '1'
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;27.1.12297006"
+      - name: Install Expo dependencies and generate TSQ icons
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
+          npx expo install --check
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --clean --no-install
+      - name: Configure Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+      - name: Compile standalone APK with embedded JavaScript
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew :app:assembleRelease --no-daemon --stacktrace
+      - name: Prepare and verify signed testing APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist-apk
+          apk="$(find android/app/build/outputs/apk/release -maxdepth 1 -name '*.apk' -print -quit)"
+          test -n "$apk"
+          signer="$ANDROID_HOME/build-tools/36.0.0/apksigner"
+          output="dist-apk/TSQ-android-test.apk"
+          if "$signer" verify "$apk"; then
+            cp "$apk" "$output"
+          else
+            key="android/app/debug.keystore"
+            if [ ! -f "$key" ]; then
+              key="$RUNNER_TEMP/tsq-test.keystore"
+              keytool -genkeypair -keystore "$key" -storepass android -keypass android -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+            fi
+            "$signer" sign --ks "$key" --ks-key-alias androiddebugkey --ks-pass pass:android --key-pass pass:android --out "$output" "$apk"
+          fi
+          "$signer" verify --verbose "$output"
+          unzip -Z1 "$output" | grep -E '^assets/index\.android\.bundle$'
+          sha256sum "$output" > dist-apk/SHA256SUMS.txt
+      - name: Upload Android test APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: TSQ-Android-APK
+          path: mobile/dist-apk/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Installation instructions
+        run: |
+          echo '## TSQ Android test build' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Download the TSQ-Android-APK artifact from this run, unzip it, and install TSQ-android-test.apk on your Android device.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This standalone build does not require Expo Go or Metro. Test signing only: do not upload it to Google Play.' >> "$GITHUB_STEP_SUMMARY"
