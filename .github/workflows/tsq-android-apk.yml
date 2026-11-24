@@ -24,11 +24,12 @@ jobs:
       run:
         working-directory: mobile
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
-      - uses: actions/setup-java@v4
+          package-manager-cache: false
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '17'
@@ -53,7 +54,7 @@ jobs:
       - name: Generate native Android project
         run: npx expo prebuild --platform android --clean --no-install
       - name: Configure Gradle cache
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
       - name: Compile standalone APK with embedded JavaScript
         run: |
           cd android
@@ -82,7 +83,7 @@ jobs:
           unzip -Z1 "$output" | grep -E '^assets/index\.android\.bundle$'
           sha256sum "$output" > dist-apk/SHA256SUMS.txt
       - name: Upload Android test APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: TSQ-Android-APK
           path: mobile/dist-apk/
