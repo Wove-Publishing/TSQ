@@ -1,0 +1,10 @@
+import sharp from 'sharp';
+import {mkdir} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const source=fileURLToPath(new URL('../../public/assets/images/tsq-icon.png',import.meta.url));
+const out=fileURLToPath(new URL('../assets/',import.meta.url));
+await mkdir(out,{recursive:true});
+await sharp(source).resize(1024,1024,{fit:'contain',background:'#f7f5ee'}).flatten({background:'#f7f5ee'}).png().toFile(out+'icon.png');
+const foreground=await sharp(source).resize(620,620,{fit:'contain',background:'#0000'}).png().toBuffer();
+await sharp({create:{width:1024,height:1024,channels:4,background:'#0000'}}).composite([{input:foreground,gravity:'centre'}]).png().toFile(out+'adaptive-icon.png');
+await sharp(source).resize(400,400,{fit:'contain',background:'#0000'}).png().toFile(out+'splash.png');
