@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "The Scandinavian Quarterly",
+    "slug": "tsq",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.wovepublishing.tsq",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.wovepublishing.tsq"
+    },
+    "extra": {
+      "feedUrl": "https://www.thescandinavianquarterly.com/api/mobile.json"
+    }
+  }
+}
