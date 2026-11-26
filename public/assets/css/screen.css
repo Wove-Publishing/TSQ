@@ -2248,3 +2248,27 @@ html.dark-mode .kg-bookmark-description {
   gap: 2px;
   text-align: right;
 }
+
+/* Contributor links to work published outside TSQ: typographic list, no cards or rules. */
+.published-elsewhere-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+.published-elsewhere-list li {
+  border: 0;
+  padding: 0;
+}
+.published-elsewhere-list a {
+  font: 18px/1.6 var(--serif);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.published-elsewhere-meta {
+  display: block;
+  color: var(--muted);
+  font: 13px/1.7 var(--sans);
+}

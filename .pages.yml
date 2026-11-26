@@ -414,6 +414,33 @@ content:
             label: Book link
             type: string
 
+      - name: other_publications
+        label: Published elsewhere
+        type: object
+        description: Links to work published in other magazines, journals or websites. Use Books above for books.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Work title or feature
+            type: string
+            required: true
+
+          - name: publication
+            label: Publication or platform
+            type: string
+
+          - name: year
+            label: Year
+            type: string
+
+          - name: url
+            label: Read online URL
+            type: string
+            required: true
+
       - name: draft
         label: Draft profile
         type: boolean

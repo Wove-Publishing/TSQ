@@ -83,6 +83,26 @@ const hasPortrait = Boolean(d.portrait);
       </section>
     )}
 
+    {d.other_publications?.length > 0 && (
+      <section class="contributor-section wrap">
+        <div class="section-heading">
+          <h2>Published Elsewhere</h2>
+        </div>
+        <ul class="published-elsewhere-list">
+          {d.other_publications.map((publication) => (
+            <li>
+              <a href={publication.url} rel="noopener noreferrer">{publication.title}</a>
+              {(publication.publication || publication.year) && (
+                <span class="published-elsewhere-meta">
+                  {[publication.publication, publication.year].filter(Boolean).join(' · ')}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     {works.length > 0 && (
       <section class="contributor-section wrap">
         <div class="section-heading">

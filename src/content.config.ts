@@ -63,6 +63,12 @@ const contributors = defineCollection({
       year: z.string().optional(),
       url: z.string().optional()
     })).default([]),
+    other_publications: z.array(z.object({
+      title: z.string(),
+      publication: z.string().optional(),
+      year: z.string().optional(),
+      url: z.string()
+    })).default([]),
     draft: z.boolean().default(false)
   })
 });
