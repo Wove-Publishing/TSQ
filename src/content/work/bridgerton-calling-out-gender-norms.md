@@ -6,12 +6,11 @@ category: essay
 original_language: en
 publication_language: en
 is_translation: false
-# Provisional CMS date only; verify prior-publication status and set an actual publication date before releasing.
 publish_date: 2026-11-26
 excerpt: On feminism and female agency in Bridgerton, informed by a qualitative analysis of 36 scenes.
 featured: false
-draft: true
-# This essay's previous-publication status has not yet been confirmed.
+draft: false
+# Editorial check still open: confirm whether this essay appeared elsewhere before TSQ. Do not include in issue compilations until verified.
 compilation_eligible: false
 ---
 How can a show about traditional patriarchal roles, where finding a suitable husband is of utmost importance in a young woman's life, be so popular in the 2020s, when debates about feminism and women's rights are so prominent? As a *Bridgerton* fan and a self-identifying feminist, I almost wanted to dislike the show in the beginning. It seemed to contradict everything I believe in. And yet, here I was, tuning in for every new season. So I took that question and focused my master's thesis on it. That meant I got to watch *Bridgerton* and call it research.
